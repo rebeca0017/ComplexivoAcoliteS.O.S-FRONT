@@ -1,0 +1,48 @@
+<!--animacion-->
+<div class="burbujas">
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+</div>
+
+<img src="../../../assets/imhg/Nosotros/background/bg.jpg" alt="" class="bg-img">
+<div class="container">
+  <div class="boxlogin">
+    <!-- Logo -->
+    <img src="../../../assets/imhg/logos/Logo.png" alt="" class="logo"><br><br>
+
+    <form class="formulario form" (ngSubmit)="login()" [formGroup]="formGroup">
+      <div class="mb-3">
+        <label for="email" class="form-label textoform">Correo Electrónico</label>
+        <input class="form-control bg bg-dark shadow-lg text-bg-secondary" type="email" id="email"
+          formControlName="email" required="" autocomplete="off" spellcheck="false" placeholder="Escribe tu email" />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label textoform">Contraseña</label>
+        <input class="form-control bg bg-dark shadow-lg text-bg-secondary" type="password" id="password"
+          formControlName="password" required="" autocomplete="off" spellcheck="false"
+          placeholder="Escribe tu contraseña" />
+      </div>
+      <div class="mb-3 form-check terminos d-flex justify-content-center gap-2">
+        <input type="checkbox" class="form-check-input bg-dark">
+        <label class="form-check-label textoform" for="exampleCheck1 "> Aceptar Términos</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+    </form>
+    <!-- Footer--><br>
+    <footer class="footer footer-alt">
+      <p class="text-muted">
+        No tienes cuenta con nosotros?
+        <a href="/register" class="text-muted ms-1"><b>Regístrate aquí</b></a>
+      </p>
+    </footer>
+  </div>
+  
+</div>

@@ -1,0 +1,50 @@
+<!--animacion-->
+<div class="burbujas">
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+</div>
+
+<img src="../../../assets/imhg/Nosotros/background/bg.jpg" alt="" class="bg-img">
+<div class="container">
+  <div class="boxlogin">
+    <!-- logo -->
+    <img src="../../../assets/imhg/logos/Logo.png" alt="" class="logo"><br><br>
+    <!-- form -->
+    <form (ngSubmit)="register()" [formGroup]="formGroup" class="formulario form">
+      <div class="mb-3">
+        <label for="name" class="form-label text-light">Nombre y Apellido</label>
+        <input class="form-control bg bg-dark shadow-lg text-bg-secondary" formControlName="name" type="text" id="name"
+          placeholder="Ingresa tu nombre y apellido" required />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label text-light">Correo electrónico</label>
+        <input class="form-control bg bg-dark shadow-lg text-bg-secondary" formControlName="email" type="email"
+          id="emailaddress" required placeholder="Ingresa tu correo electrónico" />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label text-light">Contraseña</label>
+        <input class="form-control bg bg-dark shadow-lg text-bg-secondary" formControlName="password" type="password"
+          required id="password" placeholder="Ingresa tu contraseña" />
+      </div>
+      <div class="form-check p-3 d-flex justify-content-center gap-2">
+        <input type="checkbox" class="form-check-input bg-dark" id="checkbox-signup" formControlName="terms_and_conditions" />
+        <label class="form-check-label textoform" for="checkbox-signup">Acepto
+          <a href="javascript: void(0);" class="text-muted bg-primary"> los términos y condiciones</a></label>
+      </div>
+      <div class="mb-0 d-grid text-center">
+        <button class="btn btn-dark hover:btn-primary-focus w-full capitalize" type="submit">
+          Registrarse
+        </button><br>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- end form-->

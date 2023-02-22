@@ -1,0 +1,18 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-elevation-z8{
+  background-color: black;
+}
+
+.logo{
+  padding-top: 14px;
+  font-size: 30px;
+}
+
+.nombre__sos {
+  font-size: 30px;
+  font-weight: bold;
+  color: #2de2fa;
+}

@@ -1,0 +1,11 @@
+<mat-toolbar color="primary" class="mat-elevation-z8">
+ <h2 class="logo">Acolite <span class="nombre__sos">S.O.S</span></h2>
+
+  <div class="spacer"></div>
+
+ <a mat-button routerLink="/home">Inicio</a>
+ <a mat-button routerLink="/nosotros">Nosotros</a>
+ <a mat-button routerLink="/contacto">Contacto</a>
+ <a mat-raised-button color="accent" routerLink="/login">Login</a>
+ <a (click)="logout()" mat-raised-button color="accent">Logout</a>
+</mat-toolbar>
