@@ -1,8 +1,11 @@
+
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +24,9 @@ import { ScrollToTopComponent } from './modules/estatica/scroll-to-top/scroll-to
 import { MecanicoComponent } from './modules/dashboard/mecanico/mecanico.component';
 import { ClienteComponent } from './modules/dashboard/cliente/cliente.component';
 import { HasPermissionsDirective } from './auth/has-permission.directive';
+import { SidebarComponent } from './modules/estatica/sidebar/sidebar.component';
+
+
 
 @NgModule({
   declarations: [
@@ -34,7 +40,8 @@ import { HasPermissionsDirective } from './auth/has-permission.directive';
     ContactoComponent,
     ScrollToTopComponent,
     MecanicoComponent,
-    ClienteComponent
+    ClienteComponent,
+    SidebarComponent
   ],
   providers: [
     {
@@ -52,7 +59,11 @@ import { HasPermissionsDirective } from './auth/has-permission.directive';
     MatButtonModule,
     MatIconModule,
     BrowserAnimationsModule,
-    RouterModule
+    RouterModule,
+    IonicModule.forRoot()
+    
+   
+    
     
   ],
   bootstrap: [AppComponent]
