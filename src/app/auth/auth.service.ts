@@ -56,20 +56,12 @@ export class AuthService {
       );
   }
 
-  register(name: string, email: string, password: string): Observable<any> {
+  register(name: string, email: string, role:number, password: string): Observable<any> {
     return this.http
       .post<any>(
         `${API_URL}/register`,
-        { name, email, password },
+        { name, email, role, password },
         this.httpOptions
-      )
-      .pipe(
-        map((response) => {
-          console.log(response);
-          this.authLocalStorage.setAccessToken(response.data.token);
-          return response;
-        }),
-        catchError(this.handleError<any>('login'))
       );
   }
 
@@ -84,7 +76,6 @@ export class AuthService {
 
   getUser(): Observable<any> {
     const token = this.authLocalStorage.getAccessToken();
-    console.log(token);
     if (!this.authValidator.isTokenValid(token)) {
       return of(null);
     }

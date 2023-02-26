@@ -14,11 +14,18 @@
 
 <img src="../../../assets/imhg/Nosotros/background/bg.jpg" alt="" class="bg-img">
 <div class="container">
-  <div class="boxlogin">
+  <div class="boxlogin" data-aos="fade-down">
     <!-- logo -->
     <img src="../../../assets/imhg/logos/Logo.png" alt="" class="logo"><br><br>
     <!-- form -->
     <form (ngSubmit)="register()" [formGroup]="formGroup" class="formulario form">
+      <div class="mb-3">
+        <label for="role" class="form-label text-light">Tipo de Usuario </label>
+        <select id="role" formControlName="role" class="form-select form-select-sm bg-dark text-light">
+          <option selected>Selecciona una opción..</option>
+          <option *ngFor="let role of roles" value={{role.id}}>{{role.name}}</option>
+        </select>
+      </div>
       <div class="mb-3">
         <label for="name" class="form-label text-light">Nombre de usuario</label>
         <input class="form-control bg bg-dark shadow-lg text-bg-secondary" formControlName="name" type="text" id="name"
@@ -40,7 +47,7 @@
           <a href="javascript: void(0);" class="text-muted bg-primary"> los términos y condiciones</a></label>
       </div>
       <div class="mb-0 d-grid text-center">
-        <button class="btn btn-dark hover:btn-primary-focus w-full capitalize" type="submit">
+        <button [disabled]="!formGroup.valid" class="btn btn-primary hover:btn-primary-focus w-full capitalize" type="submit">
           Registrarse
         </button><br>
       </div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ClienteService } from './cliente.service';
+import { AuthService } from '../../../auth/auth.service';
 
 @Component({
   selector: 'app-cliente',
@@ -9,12 +10,15 @@ import { ClienteService } from './cliente.service';
 export class ClienteComponent {
   cliente: any;
 
-  constructor(private clienteService: ClienteService) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    this.clienteService.getCliente().subscribe((data: any) => {
-      this.cliente = data;
-    });
+    this.getUser();
   }
 
+  getUser() {
+    this.authService.getUser().subscribe((res: any) => {
+      this.cliente = res;
+    });
+  }
 }
