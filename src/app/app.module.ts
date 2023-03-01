@@ -18,11 +18,13 @@ import { DashboardRoutingModule } from './modules/dashboard/dashboard-routing.mo
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { EstaticaRoutingModule } from './modules/estatica/estatica-routing.module';
 import { EstaticaModule } from './modules/estatica/estatica.module';
+import { VehiculoComponent } from './modules/dashboard/vehiculo/vehiculo.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    VehiculoComponent
   ],
   providers: [
     {
