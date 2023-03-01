@@ -22,6 +22,7 @@ import { HasPermissionsDirective } from './auth/has-permission.directive';
 import { SidebarComponent } from './modules/estatica/sidebar/sidebar.component';
 import { EstaticaRoutingModule } from './modules/estatica/estatica-routing.module';
 import { EstaticaModule } from './modules/estatica/estatica.module';
+import { VehiculoComponent } from './modules/dashboard/vehiculo/vehiculo.component';
 
 
 
@@ -31,7 +32,8 @@ import { EstaticaModule } from './modules/estatica/estatica.module';
     AppComponent,
     MecanicoComponent,
     ClienteComponent,
-    SidebarComponent
+    SidebarComponent,
+    VehiculoComponent
   ],
   providers: [
     {

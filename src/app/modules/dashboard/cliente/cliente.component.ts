@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ClienteService } from './cliente.service';
 import { AuthService } from '../../../auth/auth.service';
 
+
 @Component({
   selector: 'app-cliente',
   templateUrl: './cliente.component.html',
@@ -21,4 +22,7 @@ export class ClienteComponent {
       this.cliente = res;
     });
   }
+  showDetails= false;
+
+  
 }

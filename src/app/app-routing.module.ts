@@ -5,6 +5,7 @@ import { LoginGuard } from './auth/guards/login.guard';
 import { LoginComponent } from './modules/estatica/login/login.component';
 import { RegisterComponent } from './modules/estatica/register/register.component';
 import { ClienteComponent } from './modules/dashboard/cliente/cliente.component';
+import { VehiculoComponent } from './modules/dashboard/vehiculo/vehiculo.component';
 import { MecanicoComponent } from './modules/dashboard/mecanico/mecanico.component';
 import { AuthMecanicoGuard } from './auth/guards/auth-mecanico.guard';
 import { AuthClientGuard } from './auth/guards/auth-client.guard';
@@ -26,6 +27,11 @@ const routes: Routes = [
     path: 'admin',
     canActivate: [AuthAdminGuard],
     component: MecanicoComponent
+  },
+  {
+    path: 'vehiculo',
+    canActivate: [AuthAdminGuard],
+    component: VehiculoComponent
   },
   {
     path: 'estatica',
