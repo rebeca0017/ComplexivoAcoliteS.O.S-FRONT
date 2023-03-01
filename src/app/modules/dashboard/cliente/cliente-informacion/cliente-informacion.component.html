@@ -1,22 +1,54 @@
-<p>cliente-informacion works!</p>
-<h1>informacion general</h1>
+<div class="container">
+  <h1>INFORMACION GENERAL</h1>
+  <br><br><br><br>
 
-<table>
-    <thead>
-      <tr>
-        <th>id</th>
-        <th>nombre de usuario</th>
-        <th>Nombres</th>
-        <th>apellidos</th>
-        <th>email</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-        <td>{{ cliente.name }}</td>
-        <td>{{ cliente.nombres }}</td>
-        <td>{{ cliente.apellidos }}</td>
-        <td>{{ cliente.email }}</td>
+  <div class="card" style="width: 18rem;">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvlSOywMNvZ3Gw_5vZ7K-eliMZhApuXU8HCw&usqp=CAU" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-text">usuario: {{cliente.name}}</p>
+      <p class="card-text">nombres: {{cliente.nombres}}</p>
+      <p class="card-text">apellidos: {{cliente.apellidos}}</p>
+      <p class="card-text">identificacion: {{cliente.identificacion}}</p>
+    </div>
+  </div>
+
   
-    </tbody>
-  </table>
+  <button type="button" class="btn btn-primary" (click)="showDetails = !showDetails">editar</button>
+
+
+  <div *ngIf="showDetails">
+    
+    <form method="POST">
+      <div class="form-group" >
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="cliente.name">
+      </div>
+      <div class="form-group">
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" [(ngModel)]="cliente.email">
+      </div>
+      <div class="form-group">
+        <label for="text">nombres:</label>
+        <input type="text" id="phone" name="nombres" [(ngModel)]="cliente.nombres">
+      </div>
+      <div class="form-group">
+        <label for="text">apellidos:</label>
+        <input type="text" id="phone" name="apellidos" [(ngModel)]="cliente.apellidos">
+      </div>
+      <div class="form-group">
+        <label for="text">tipo de identificacion:</label>
+        <input type="text" id="phone" name="tipo_identificacion" [(ngModel)]="cliente.tipo_identificacion">
+      </div>
+      <div class="form-group">
+        <label for="text">identificacion:</label>
+        <input type="text" id="phone" name="identificacion" [(ngModel)]="cliente.identificacion">
+      </div>
+      <div class="form-group">
+        <label for="phone">contacto:</label>
+        <input type="tel" id="phone" name="contacto" [(ngModel)]="cliente.contacto">
+      </div>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+  </div>
+  
+</div>

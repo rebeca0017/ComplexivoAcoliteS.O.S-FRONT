@@ -21,4 +21,5 @@ export class ClienteInformacionComponent {
       this.cliente = res;
     });
   }
+  showDetails= false;
 }
