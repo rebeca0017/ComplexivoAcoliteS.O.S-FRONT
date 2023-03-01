@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { MatToolbarModule } from '@angular/material/toolbar';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,7 +18,6 @@ import { DashboardRoutingModule } from './modules/dashboard/dashboard-routing.mo
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { EstaticaRoutingModule } from './modules/estatica/estatica-routing.module';
 import { EstaticaModule } from './modules/estatica/estatica.module';
-
 
 
 @NgModule({
@@ -45,7 +45,7 @@ import { EstaticaModule } from './modules/estatica/estatica.module';
     EstaticaModule,
     DashboardModule,
     DashboardRoutingModule,
-    IonicModule.forRoot()
+    IonicModule.forRoot(),
   ],
   bootstrap: [AppComponent]
 })

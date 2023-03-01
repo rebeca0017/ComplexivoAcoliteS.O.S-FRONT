@@ -14,8 +14,13 @@ import { MainComponent } from './main/main.component';
 import { MecanicoComponent } from './mecanico/mecanico.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { HasPermissionsDirective } from '../../auth/has-permission.directive';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { SidebarComponent } from './cliente/sidebar/sidebar.component';
 import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
+import { ClienteInformacionComponent } from './cliente/cliente-informacion/cliente-informacion.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatFormField } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -24,8 +29,8 @@ import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
     MecanicoComponent,
     ClienteComponent,
     SidebarComponent,
-    ScrollToTopComponent
-
+    ScrollToTopComponent,
+    ClienteInformacionComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,10 @@ import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
     MatIconModule,
     BrowserAnimationsModule,
     RouterModule,
-    IonicModule.forRoot()
+    IonicModule.forRoot(),
+    LayoutModule,
+    MatSidenavModule,
+    MatListModule,
   ],
 })
 export class DashboardModule { }

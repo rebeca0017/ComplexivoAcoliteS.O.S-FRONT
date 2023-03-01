@@ -14,11 +14,16 @@ vertical-align: middle;
 font-size:20px;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+}
 
-.main-menu:hover,nav.main-menu.expanded {
+.main-menu:hover {
 width:250px;
 overflow:visible;
 }
+
 
 .main-menu {
 background:#212121;
@@ -34,6 +39,13 @@ overflow:hidden;
 transition:width .05s linear;
 -webkit-transform:translateZ(0) scale(1,1);
 z-index:1000;
+}
+
+.user:hover{
+  background-color: #444444;
+}
+.dropdown-menu:active{
+  position: absolute;
 }
 
 .main-menu>ul {
@@ -126,4 +138,14 @@ height: 100%;
   font-style: normal;
   font-weight: 300;
   src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+}
+
+#textos{
+  color: white;
+  font-size: 15px;
+}
+.nombre__sos {
+  font-size: 16px;
+  font-weight: bold;
+  color: #2de2fa;
 }
