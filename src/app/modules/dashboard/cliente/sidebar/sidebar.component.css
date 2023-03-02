@@ -8,3 +8,18 @@
   color: #2de2fa;
 }
 
+.navactive{
+  padding-left: 50px !important;
+  padding-right: 63px !important;
+  margin-right: -60px;
+  margin-left: -22px;
+}
+
+.textos{
+  color: white;
+  font-size: 17px;
+}
+
+.principal{
+  position: fixed;
+}
