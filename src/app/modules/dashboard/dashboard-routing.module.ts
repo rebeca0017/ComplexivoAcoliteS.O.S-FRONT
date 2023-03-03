@@ -8,7 +8,7 @@ import { MecanicoComponent } from '../../modules/dashboard/mecanico/mecanico.com
 import { AuthMecanicoGuard } from '../../auth/guards/auth-mecanico.guard';
 import { AuthClientGuard } from '../../auth/guards/auth-client.guard';
 import { AuthAdminGuard } from '../../auth/guards/auth-admin.guard';
-
+import { MecanicoInformacionComponent } from '../../modules/dashboard/mecanico/mecanico-informacion/mecanico-informacion.component';
 
 
 const routes: Routes = [
@@ -31,6 +31,11 @@ const routes: Routes = [
         path: 'mecanico',
         canActivate: [AuthMecanicoGuard],
         component: MecanicoComponent
+      },
+      {
+        path: 'mecanico-info',
+        canActivate: [AuthMecanicoGuard],
+        component: MecanicoInformacionComponent
       },
       {
         path: 'admin',

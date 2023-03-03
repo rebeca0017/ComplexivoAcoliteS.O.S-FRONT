@@ -14,13 +14,13 @@ import { MainComponent } from './main/main.component';
 import { MecanicoComponent } from './mecanico/mecanico.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { HasPermissionsDirective } from '../../auth/has-permission.directive';
-import { SidebarComponent } from './cliente/sidebar/sidebar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
 import { ClienteInformacionComponent } from './cliente/cliente-informacion/cliente-informacion.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { MatFormField } from '@angular/material/form-field';
+import { MecanicoInformacionComponent } from './mecanico/mecanico-informacion/mecanico-informacion.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import { MatFormField } from '@angular/material/form-field';
     ClienteComponent,
     SidebarComponent,
     ScrollToTopComponent,
-    ClienteInformacionComponent
+    ClienteInformacionComponent,
+    MecanicoInformacionComponent
   ],
   imports: [
     BrowserModule,

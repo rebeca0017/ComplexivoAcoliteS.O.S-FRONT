@@ -1,0 +1,114 @@
+<div class="container">
+  <h1>INFORMACION GENERAL</h1>
+  <br><br><br><br>
+  <form>
+    <div class="form-group row">
+      <label for="staticEmail" class="col-2 col-form-label">usuario: </label>
+      <div class="col-sm-10">
+        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value={{mecanico.name}}>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="staticnombres" class="col-2 col-form-label">Nombres: </label>
+      <div class="col-sm-10">
+        <input type="text" readonly class="form-control-plaintext" id="staticnombres" value={{mecanico.nombres}}>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="staticapellidos" class="col-2 col-form-label">Apellidos: </label>
+      <div class="col-sm-10">
+        <input type="text" readonly class="form-control-plaintext" id="staticapellidos" value={{mecanico.apellidos}}>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="staticidentificacion" class="col-2 col-form-label">Identificacion: </label>
+      <div class="col-sm-10">
+        <input type="text" readonly class="form-control-plaintext" id="staticidentificacion"
+          value={{mecanico.identificacion}}>
+      </div>
+    </div>
+  </form>
+
+  <br> <br> <br>
+  <button type="button" class="btn btn-primary" (click)="showDetails = !showDetails">editar</button>
+
+
+  <!-- <div *ngIf="showDetails">
+    <br>
+    <br>
+    <form method="POST">
+      <div class="form-group">
+        <label for="name">Nombre:</label>
+        <input type="text" readonly id="name" name="name" [(ngModel)]="cliente.name">
+      </div>
+      <div class="form-group">
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" [(ngModel)]="cliente.email">
+      </div>
+      <div class="form-group">
+        <label for="text">nombres:</label>
+        <input type="text" id="phone" name="nombres" [(ngModel)]="cliente.nombres">
+      </div>
+      <div class="form-group">
+        <label for="text">apellidos:</label>
+        <input type="text" id="phone" name="apellidos" [(ngModel)]="cliente.apellidos">
+      </div>
+      <div class="form-group">
+        <label for="text">tipo de identificacion:</label>
+        <input type="text" id="phone" name="tipo_identificacion" >
+      </div>
+      <div class="form-group">
+        <label for="text">identificacion:</label>
+        <input type="text" id="phone" name="identificacion" [(ngModel)]="cliente.identificacion">
+      </div>
+      <div class="form-group">
+        <label for="phone">contacto:</label>
+        <input type="tel" id="phone" name="contacto" [(ngModel)]="cliente.contacto">
+      </div>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+  </div> -->
+
+
+
+  <div *ngIf="showDetails">
+    <form method="POST">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="name">Usuario:</label>
+          <input type="text" id="name" name="name" class="form-control" [(ngModel)]="mecanico.name">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="email">Email: </label>
+          <input type="email" id="email" name="email" class="form-control" [(ngModel)]="mecanico.email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputNombres">Nombres:</label>
+        <input type="text" class="form-control" id="phone" name="nombres" [(ngModel)]="mecanico.nombres">
+      </div>
+      <div class="form-group">
+        <label for="inputApellidos">Apellidos:</label>
+        <input type="text" class="form-control" id="inputApellidos" name="apellidos" [(ngModel)]="mecanico.apellidos">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputidtipo">Tipo de Identificación: </label>
+          <input type="text" class="form-control" id="inputidtipo" name="tipo_identificacion"
+            [(ngModel)]="mecanico.tipo_identificacion">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputIdentificacion">Identificación: </label>
+          <input id="inputIdentificacion" class="form-control" name="identificacion"
+            [(ngModel)]="mecanico.identificacion">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="phone">Contacto: </label>
+          <input type="tel" class="form-control" id="phone" name="contacto" [(ngModel)]="mecanico.contacto">
+        </div>
+      </div>
+      <br><br>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+  </div>
+</div>

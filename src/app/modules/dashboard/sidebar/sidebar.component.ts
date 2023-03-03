@@ -24,6 +24,7 @@ export class SidebarComponent {
   }
 
   cliente: any;
+  
 
   getUser() {
     this.authService.getUser().subscribe((res: any) => {
