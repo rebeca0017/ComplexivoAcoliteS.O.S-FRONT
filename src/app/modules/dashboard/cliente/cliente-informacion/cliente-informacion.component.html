@@ -62,7 +62,7 @@
       </div>
       <div class="modal-body">
         <div *ngIf="showDetails">
-          <form method="POST" class="editar">
+          <form (submit)="updateUser()" class="editar">
             <div class="form-row">
               <div class="form-group col-md-8">
                 <label for="name">Usuario:</label>

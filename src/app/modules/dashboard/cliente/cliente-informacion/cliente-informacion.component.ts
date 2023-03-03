@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { ClienteService } from '../cliente.service';
+import { ClienteService } from './cliente.service';
 import { AuthService } from '../../../../auth/auth.service';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
+import { User } from '../../../../models/user';
 
 @Component({
   selector: 'app-cliente-informacion',
@@ -9,9 +10,9 @@ import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
   styleUrls: ['./cliente-informacion.component.css']
 })
 export class ClienteInformacionComponent {
-  cliente: any;
+  cliente: User;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private clienteService: ClienteService) { }
   
 
   ngOnInit() {
@@ -32,5 +33,16 @@ export class ClienteInformacionComponent {
   }
   closePopup() {
     this.displayStyle = "none";
+  }
+
+  updateUser() {
+    this.clienteService.updateUser(this.cliente).subscribe(
+      (response) => {
+        console.log('actualizado con exito')
+      },
+      (error) => {
+        console.log( 'no se pudo actualizar el cliente')
+      }
+    );
   }
 }

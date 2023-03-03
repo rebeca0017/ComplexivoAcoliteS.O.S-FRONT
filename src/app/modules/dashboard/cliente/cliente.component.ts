@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { ClienteService } from './cliente.service';
+import { ClienteService } from './cliente-informacion/cliente.service';
 import { AuthService } from '../../../auth/auth.service';
+import { User } from '../../../models/user';
+
 
 
 @Component({
@@ -9,9 +11,9 @@ import { AuthService } from '../../../auth/auth.service';
   styleUrls: ['./cliente.component.css']
 })
 export class ClienteComponent {
-  cliente: any;
+  cliente: User;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private clienteService: ClienteService) { }
 
   ngOnInit() {
     this.getUser();
@@ -24,5 +26,14 @@ export class ClienteComponent {
   }
   showDetails= false;
 
-  
+  updateUser() {
+    this.clienteService.updateUser(this.cliente).subscribe(
+      (response) => {
+        console.log('actualizado con exito')
+      },
+      (error) => {
+        console.log( 'no se pudo actualizar el cliente')
+      }
+    );
+  }
 }

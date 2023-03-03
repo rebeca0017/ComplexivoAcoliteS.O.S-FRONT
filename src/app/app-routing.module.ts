@@ -7,11 +7,6 @@ import { AuthAdminGuard } from './auth/guards/auth-admin.guard';
 const routes: Routes = [
   { path: '', redirectTo: 'estatic', pathMatch: 'full' },
   {
-    path: 'vehiculo',
-    canActivate: [AuthAdminGuard],
-    component: VehiculoComponent
-  },
-  {
     path: 'estatica',
     loadChildren: () =>
       import('./modules/estatica/estatica.module').then((m) => m.EstaticaModule),
