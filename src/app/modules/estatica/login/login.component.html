@@ -32,15 +32,15 @@
       </div>
       <div class="mb-3 form-check terminos d-flex justify-content-center gap-2">
         <input type="checkbox" class="form-check-input bg-dark" formControlName="terms_and_conditions">
-        <label class="form-check-label textoform" for="exampleCheck1 "> Aceptar Términos</label>
+        <label class="form-check-label textoform" for="exampleCheck1 "> Aceptar <a href="javascript: void(0);" class="textoterminos"> <b>términos</b></a></label>
       </div>
       <button [disabled]="!formGroup.valid"  type="submit" class="btn btn-primary">Iniciar Sesión</button>
     </form>
     <!-- Footer--><br>
     <footer class="footer footer-alt">
-      <p class="text-muted">
+      <p class=" texton">
         No tienes cuenta con nosotros?
-        <a href="/register" class="text-muted ms-1"><b>Regístrate aquí</b></a>
+        <a href="/register" class="ms-1 textoterminos"><b> ¡Regístrate!</b></a>
       </p>
     </footer>
   </div>

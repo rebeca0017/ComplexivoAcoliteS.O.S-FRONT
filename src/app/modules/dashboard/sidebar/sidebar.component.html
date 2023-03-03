@@ -6,7 +6,7 @@
                     <span class="fs-5 d-none d-sm-inline">Menu</span>
                 </a>
                 <!--Clientes-->
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                <ul *permissions="['editar-cliente']" class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li class="nav-item side-nav-item rounded-1">
                         <a [routerLinkActive]="['active']" routerLink="/cliente"
                             class="nav-link align-middle px-0 navactive textos">
@@ -27,7 +27,7 @@
                     </div>
                 </ul>
                 <!--Mecanicos-->
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                <ul *permissions="['editar-mecanico']" class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li class="nav-item side-nav-item rounded-1">
                         <a [routerLinkActive]="['active']" routerLink="/mecanico"
                             class="nav-link align-middle px-0 navactive textos">
@@ -49,7 +49,7 @@
                 </ul>
                 <hr>
                 <!--clientes-->
-                <div  class="dropdown pb-4">
+                <div *permissions="['editar-cliente']" class="dropdown pb-4">
                     <a class="textos d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                         id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://github.com/mdo.png" alt="hugenerd" width="35" height="35"
@@ -67,7 +67,7 @@
                     </ul>
                 </div>
                 <!--mecanicos-->
-                <div class="dropdown pb-4">
+                <div *permissions="['editar-mecanico']" class="dropdown pb-4">
                     <a class="textos d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                         id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://github.com/mdo.png" alt="hugenerd" width="35" height="35"

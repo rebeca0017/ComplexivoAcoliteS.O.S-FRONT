@@ -42,16 +42,25 @@
           required id="password" placeholder="Ingresa tu contraseña" />
       </div>
       <div class="form-check p-3 d-flex justify-content-center gap-2">
-        <input type="checkbox" class="form-check-input bg-dark" id="checkbox-signup" formControlName="terms_and_conditions" />
-        <label class="form-check-label textoform" for="checkbox-signup">Acepto
-          <a href="javascript: void(0);" class="text-muted bg-primary"> los términos y condiciones</a></label>
+        <input type="checkbox" class="form-check-input bg-dark" id="checkbox-signup"
+          formControlName="terms_and_conditions" />
+        <label class="form-check-label textoform" for="checkbox-signup">Aceptar
+          <a href="javascript: void(0);" class="textoterminos"> <b>términos</b></a></label>
       </div>
       <div class="mb-0 d-grid text-center">
-        <button [disabled]="!formGroup.valid" class="btn btn-primary hover:btn-primary-focus w-full capitalize" type="submit">
+        <button [disabled]="!formGroup.valid" class="btn btn-primary hover:btn-primary-focus w-full capitalize"
+          type="submit">
           Registrarse
         </button><br>
       </div>
     </form>
+    <!-- Footer-->
+    <footer class="footer footer-alt">
+      <p class=" texton">
+        ¿Ya tienes cuenta?
+        <a href="/login" class="ms-1 textoiniciar"><b> ¡Inicia Sesión!</b></a>
+      </p>
+    </footer>
   </div>
 </div>
 <!-- end form-->

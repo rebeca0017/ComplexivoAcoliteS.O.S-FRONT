@@ -201,6 +201,24 @@ footer {
   color: #e4e4e4;
 }
 
+.textoterminos{
+  color: #e4e4e4;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.textoiniciar{
+  color: #e4e4e4;
+  letter-spacing: 1px;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.texton{
+  color: #e4e4e4;
+  font-size: 15px;
+}
+
 p{
   color: #e4e4e4;
 }

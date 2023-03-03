@@ -204,3 +204,16 @@ footer {
 p{
   color: #e4e4e4;
 }
+
+.texton{
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.textoterminos{
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  letter-spacing: 2px;
+}

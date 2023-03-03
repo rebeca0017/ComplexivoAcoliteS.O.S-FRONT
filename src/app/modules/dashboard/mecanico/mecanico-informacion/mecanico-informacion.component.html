@@ -32,44 +32,7 @@
   <br> <br> <br>
   <button type="button" class="btn btn-primary" (click)="showDetails = !showDetails">editar</button>
 
-
-  <!-- <div *ngIf="showDetails">
-    <br>
-    <br>
-    <form method="POST">
-      <div class="form-group">
-        <label for="name">Nombre:</label>
-        <input type="text" readonly id="name" name="name" [(ngModel)]="cliente.name">
-      </div>
-      <div class="form-group">
-        <label for="email">Correo electrónico:</label>
-        <input type="email" id="email" name="email" [(ngModel)]="cliente.email">
-      </div>
-      <div class="form-group">
-        <label for="text">nombres:</label>
-        <input type="text" id="phone" name="nombres" [(ngModel)]="cliente.nombres">
-      </div>
-      <div class="form-group">
-        <label for="text">apellidos:</label>
-        <input type="text" id="phone" name="apellidos" [(ngModel)]="cliente.apellidos">
-      </div>
-      <div class="form-group">
-        <label for="text">tipo de identificacion:</label>
-        <input type="text" id="phone" name="tipo_identificacion" >
-      </div>
-      <div class="form-group">
-        <label for="text">identificacion:</label>
-        <input type="text" id="phone" name="identificacion" [(ngModel)]="cliente.identificacion">
-      </div>
-      <div class="form-group">
-        <label for="phone">contacto:</label>
-        <input type="tel" id="phone" name="contacto" [(ngModel)]="cliente.contacto">
-      </div>
-      <button type="submit" class="btn btn-primary">Guardar</button>
-    </form>
-  </div> -->
-
-
+<!-- form para editar -->
 
   <div *ngIf="showDetails">
     <form method="POST">
