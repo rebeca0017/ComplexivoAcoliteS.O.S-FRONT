@@ -25,15 +25,4 @@ export class ClienteComponent {
     });
   }
   showDetails= false;
-
-  updateUser() {
-    this.clienteService.updateUser(this.cliente).subscribe(
-      (response) => {
-        console.log('actualizado con exito')
-      },
-      (error) => {
-        console.log( 'no se pudo actualizar el cliente')
-      }
-    );
-  }
 }

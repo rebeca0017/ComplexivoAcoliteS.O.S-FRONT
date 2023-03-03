@@ -35,6 +35,10 @@ input{
     margin-left: 125px;
 }
 
+.btn-editar{
+margin-top: 60px;
+}
+
 .btn-guardar{
     margin-left: -125px !important;
 }
@@ -208,4 +212,9 @@ input{
   height: 120%;
   position: absolute;
   right: 5px;
+}
+
+/* validaciones */
+input:invalid{
+  border: 2px solid red;
 }

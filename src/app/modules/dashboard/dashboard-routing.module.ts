@@ -9,8 +9,8 @@ import { AuthMecanicoGuard } from '../../auth/guards/auth-mecanico.guard';
 import { AuthClientGuard } from '../../auth/guards/auth-client.guard';
 import { AuthAdminGuard } from '../../auth/guards/auth-admin.guard';
 import { MecanicoInformacionComponent } from '../../modules/dashboard/mecanico/mecanico-informacion/mecanico-informacion.component';
-
 import { VehiculoComponent } from '../../modules/dashboard/vehiculo/vehiculo.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -19,7 +19,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       {
         path: 'vehiculo',
-        canActivate: [AuthAdminGuard],
+        canActivate: [AuthClientGuard],
         component: VehiculoComponent
       },
       {

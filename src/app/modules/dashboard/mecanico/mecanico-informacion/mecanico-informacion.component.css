@@ -211,3 +211,8 @@ input {
   position: absolute;
   right: 5px;
 }
+
+/* validaciones */
+input:invalid {
+  border: 2px solid red;
+}

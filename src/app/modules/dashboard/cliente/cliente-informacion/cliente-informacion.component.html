@@ -45,8 +45,7 @@
     </div>
   </form>
 
-  <br> <br> <br>
-  <button type="button" class="btn btn-primary" (click)="showDetails = !showDetails"
+  <button type="button" class="btn btn-primary btn-editar" (click)="showDetails = !showDetails"
     (click)="openPopup()">editar</button>
 </div>
 
@@ -62,55 +61,81 @@
       </div>
       <div class="modal-body">
         <div *ngIf="showDetails">
-          <form (submit)="updateUser()" class="editar">
+          <form (submit)="updateUser()" class="editar" [formGroup]="formGroup">
             <div class="form-row">
               <div class="form-group col-md-8">
                 <label for="name">Usuario:</label>
-                <input style="color: black;" type="text" id="name" name="name" class="form-control"
-                  [(ngModel)]="cliente.name">
+                <input formControlName="usuario" style="color: black;" type="text" id="name" name="name"
+                  class="form-control" [(ngModel)]="cliente.name">
+                <small *ngIf="formGroup.get('usuario').errors &&
+                  formGroup.get('usuario').hasError('maxlength')" class="text-danger">Máximo 10 caracteres</small>
+                <small *ngIf="formGroup.get('usuario').errors &&
+                  formGroup.get('usuario').hasError('required')" class="text-danger">Se debe llenar</small>
+                <small *ngIf="formGroup.get('usuario').errors &&
+                  formGroup.get('usuario').hasError('minlength')" class="text-danger">Minimo 3 caracteres</small>
               </div>
               <br>
               <div class="form-group col-md-8">
                 <label for="email">Email: </label>
-                <input style="color: black;" type="email" id="email" name="email" class="form-control"
-                  [(ngModel)]="cliente.email">
+                <input formControlName="email" style="color: black;" type="email" id="email" name="email"
+                  class="form-control" [(ngModel)]="cliente.email">
+                <small *ngIf="formGroup.get('email').errors &&
+                  formGroup.get('email').hasError('email')" class="text-danger">Email Inválido</small>
+                <small *ngIf="formGroup.get('email').errors &&
+                  formGroup.get('email').hasError('required')" class="text-danger">Se debe llenar</small>
               </div>
               <br>
             </div>
             <div class="form-group col-md-8">
               <label for="inputNombres">Nombres:</label>
-              <input style="color: black;" type="text" class="form-control" id="phone" name="nombres"
-                [(ngModel)]="cliente.nombres">
+              <input formControlName="nombres" style="color: black;" type="text" class="form-control" id="phone"
+                name="nombres" [(ngModel)]="cliente.nombres">
+              <small *ngIf="formGroup.get('nombres').errors &&
+                  formGroup.get('nombres').hasError('required')" class="text-danger">Se debe llenar</small>
             </div>
             <br>
             <div class="form-group col-md-8">
               <label for="inputApellidos">Apellidos:</label>
               <input style="color: black;" type="text" class="form-control" id="inputApellidos" name="apellidos"
                 [(ngModel)]="cliente.apellidos">
+                <small *ngIf="formGroup.get('apellidos').errors &&
+                  formGroup.get('apellidos').hasError('required')" class="text-danger">Se debe llenar</small>
             </div>
             <br>
-            <div class="form-row">
+            <!-- <div class="form-row">
               <div class="form-group col-md-8">
-                <label for="inputidtipo">Tipo de Identificación: </label>
+                <label formControlName="" for="inputidtipo">Tipo de Identificación: </label>
                 <input style="color: black;" type="text" class="form-control" id="inputidtipo"
                   name="tipo_identificacion" [(ngModel)]="cliente.tipo_identificacion">
               </div>
-              <br>
-              <div class="form-group col-md-8">
-                <label for="inputIdentificacion">Identificación: </label>
-                <input style="color: black;" id="inputIdentificacion" class="form-control" name="identificacion"
-                  [(ngModel)]="cliente.identificacion">
-              </div>
-              <br>
-              <div class="form-group col-md-8">
-                <label for="phone">Contacto: </label>
-                <input style="color: black;" type="tel" class="form-control" id="phone" name="contacto"
-                  [(ngModel)]="cliente.contacto">
-              </div>
-              <br>
+              <br> -->
+            <div class="col-md-8">
+              <label for="inputIdentificacion">Cedula: </label>
+              <input formControlName="cedula" style="color: black;" id="inputIdentificacion" class="form-control"
+                name="identificacion" [(ngModel)]="cliente.identificacion"
+                (change)="validadorDeCedula(cliente.identificacion)" (keypress)="validateFormat($event)">
+              <small *ngIf="!validador" class="text-danger">Cédula Inválida</small>
+              <small *ngIf="formGroup.get('cedula').errors &&
+                  formGroup.get('cedula').hasError('required')" class="text-danger"></small>
+
             </div>
+            <br>
+            <div class="form-group col-md-8">
+              <label for="phone">Contacto: </label>
+              <input formControlName="contacto" style="color: black;" type="tel" class="form-control" id="phone" name="contacto"
+                [(ngModel)]="cliente.contacto" (keypress)="validateFormat($event)">
+                <small *ngIf="formGroup.get('contacto').errors &&
+                  formGroup.get('contacto').hasError('required')" class="text-danger">Se debe llenar</small>
+                  <small *ngIf="formGroup.get('contacto').errors &&
+                  formGroup.get('contacto').hasError('maxlength')" class="text-danger">Maximo 10 dígitos</small>
+                  <small *ngIf="formGroup.get('contacto').errors &&
+                  formGroup.get('contacto').hasError('minlength')" class="text-danger">minimo 10 dígitos</small>
+            </div>
+            <br>
+
             <br><br>
-            <button type="submit" class="btn btn-primary btn-guardar">Guardar</button>
+            <button [disabled]="!formGroup.valid" type="submit" class="btn btn-primary btn-guardar"
+              (click)="updateUser()">Guardar</button>
           </form>
         </div>
 

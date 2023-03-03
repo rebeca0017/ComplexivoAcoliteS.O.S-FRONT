@@ -98,13 +98,15 @@
               <div class="form-group col-md-8">
                 <label for="inputIdentificacion">Identificación: </label>
                 <input style="color: black;" id="inputIdentificacion" class="form-control" name="identificacion"
-                  [(ngModel)]="mecanico.identificacion">
+                  [(ngModel)]="mecanico.identificacion" (change)="validadorDeCedula(mecanico.identificacion)"
+                  maxlength="10" minlength="10">
+                <small *ngIf="!validador" class="text-danger">Cédula Inválida</small>
               </div>
               <br>
               <div class="form-group col-md-8">
                 <label for="phone">Contacto: </label>
                 <input style="color: black;" type="tel" class="form-control" id="phone" name="contacto"
-                  [(ngModel)]="mecanico.contacto">
+                  [(ngModel)]="mecanico.contacto" maxlength="10" minlength="10">
               </div>
               <br>
             </div>
