@@ -14,8 +14,8 @@
                         </a>
                     </li>
 
-                    <li [routerLinkActive]="['active']" routerLink="/cliente-sdf">
-                        <a class="nav-link px-0 align-middle navactive textos">
+                    <li [routerLinkActive]="['active']">
+                        <a routerLink="/cliente-sdf" class="nav-link px-0 align-middle navactive textos">
                             <i class="bi bi-journal-check"></i> <span class="ms-1 d-none d-sm-inline">
                                 Pedidos</span></a>
                     </li>
@@ -35,8 +35,8 @@
                         </a>
                     </li>
 
-                    <li [routerLinkActive]="['active']" routerLink="/mecanico-sdf">
-                        <a class="nav-link px-0 align-middle navactive textos">
+                    <li [routerLinkActive]="['active']">
+                        <a routerLink="/mecanico-sdf" class="nav-link px-0 align-middle navactive textos">
                             <i class="bi bi-journal-check"></i> <span class="ms-1 d-none d-sm-inline">
                                 Pedidos</span></a>
                     </li>
@@ -50,7 +50,7 @@
                 <hr>
                 <!--clientes-->
                 <div *permissions="['editar-cliente']" class="dropdown pb-4">
-                    <a class="textos d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                    <a style="cursor:pointer;" class="textos d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                         id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://github.com/mdo.png" alt="hugenerd" width="35" height="35"
                             class="rounded-circle">
@@ -68,7 +68,7 @@
                 </div>
                 <!--mecanicos-->
                 <div *permissions="['editar-mecanico']" class="dropdown pb-4">
-                    <a class="textos d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                    <a style="cursor:pointer;" class="textos d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                         id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://github.com/mdo.png" alt="hugenerd" width="35" height="35"
                             class="rounded-circle">
