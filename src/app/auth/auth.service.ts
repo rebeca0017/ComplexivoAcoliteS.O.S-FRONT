@@ -89,4 +89,7 @@ export class AuthService {
       return of(result as T);
     };
   }
+  getToken() {
+    return localStorage.getItem('access_token');
+  }
 }

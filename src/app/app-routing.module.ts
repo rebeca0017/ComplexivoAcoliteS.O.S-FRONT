@@ -16,7 +16,13 @@ const routes: Routes = [
   {
     path: 'cliente',
     canActivate: [AuthClientGuard],
-    component: ClienteComponent
+    component: ClienteComponent,
+    
+  },
+  {
+    path: 'cliente/vehiculo',
+    canActivate: [AuthClientGuard],
+    component: VehiculoComponent
   },
   {
     path: 'mecanico',
@@ -28,16 +34,15 @@ const routes: Routes = [
     canActivate: [AuthAdminGuard],
     component: MecanicoComponent
   },
-  {
-    path: 'vehiculo',
-    canActivate: [AuthAdminGuard],
-    component: VehiculoComponent
-  },
+  
   {
     path: 'estatica',
     loadChildren: () =>
       import('./modules/estatica/estatica.module').then((m) => m.EstaticaModule),
-  }
+  },
+
+    
+  
 ];
 
 

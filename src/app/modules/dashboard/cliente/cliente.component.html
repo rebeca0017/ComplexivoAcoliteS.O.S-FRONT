@@ -12,6 +12,7 @@
       <p class="card-text">usuario: {{cliente.name}}</p>
       <p class="card-text">nombres: {{cliente.nombres}}</p>
       <p class="card-text">apellidos: {{cliente.apellidos}}</p>
+      <p class="card-text">apellidos: {{cliente.contacto}}</p>
       <p class="card-text">identificacion: {{cliente.identificacion}}</p>
     </div>
   </div>
@@ -22,7 +23,7 @@
 
   <div *ngIf="showDetails">
     
-    <form method="POST">
+    <form (submit)="updateUser()">
       <div class="form-group" >
         <label for="name">Nombre:</label>
         <input type="text" id="name" name="name" [(ngModel)]="cliente.name">
@@ -38,10 +39,6 @@
       <div class="form-group">
         <label for="text">apellidos:</label>
         <input type="text" id="phone" name="apellidos" [(ngModel)]="cliente.apellidos">
-      </div>
-      <div class="form-group">
-        <label for="text">tipo de identificacion:</label>
-        <input type="text" id="phone" name="tipo_identificacion" [(ngModel)]="cliente.tipo_identificacion">
       </div>
       <div class="form-group">
         <label for="text">identificacion:</label>

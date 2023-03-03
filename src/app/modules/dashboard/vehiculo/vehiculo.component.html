@@ -1,1 +1,20 @@
-<p>vehiculo works!</p>
+<div *ngIf="!vehiculos || vehiculos.length == 0">El usuario no tiene vehículos</div>
+
+<table *ngIf="vehiculos && vehiculos.length > 0">
+  <thead>
+    <tr>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Color</th>
+      <th>Placa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vehiculo of vehiculos">
+      <td>{{ vehiculo.marca }}</td>
+      <td>{{ vehiculo.modelo }}</td>
+      <td>{{ vehiculo.color }}</td>
+      <td>{{ vehiculo.placa }}</td>
+    </tr>
+  </tbody>
+</table>
