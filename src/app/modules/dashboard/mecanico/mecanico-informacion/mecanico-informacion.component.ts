@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MecanicoService } from '../mecanico.service';
 import { AuthService } from '../../../../auth/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-mecanico-informacion',
@@ -9,12 +10,45 @@ import { AuthService } from '../../../../auth/auth.service';
 })
 export class MecanicoInformacionComponent {
   mecanico: any;
+  formGroup: FormGroup;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,private mecanicoService: MecanicoService, private formBuilder: FormBuilder,) { 
+    this.initForm();
+  }
 
   ngOnInit() {
     this.getUser();
   }
+
+  initForm() {
+    this.formGroup = this.formBuilder.group({
+      usuario: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      nombres: ['', [Validators.required]],
+      apellidos: ['', [Validators.required]],
+      cedula: ['', [Validators.required]],
+      contacto: ['', [Validators.required,Validators.maxLength(10),Validators.minLength(10)]],
+
+    });
+    this.formGroup.valueChanges.subscribe((val) => {  console.log(val)});
+  }
+
+  validateFormat(event) {
+    let key;
+    if (event.type === 'paste') {
+      key = event.clipboardData.getData('text/plain');
+    } else {
+      key = event.keyCode;
+      key = String.fromCharCode(key);
+    }
+    const regex = /[0-9]|\./;
+     if (!regex.test(key)) {
+      event.returnValue = false;
+       if (event.preventDefault) {
+        event.preventDefault();
+       }
+     }
+    }
 
   getUser() {
     this.authService.getUser().subscribe((res: any) => {
@@ -30,6 +64,17 @@ export class MecanicoInformacionComponent {
   }
   closePopup() {
     this.displayStyle = "none";
+  }
+
+  updateUser() {
+    this.mecanicoService.updateUser(this.mecanico).subscribe(
+      (response) => {
+        console.log('actualizado con exito')
+      },
+      (error) => {
+        console.log('no se pudo actualizar el cliente')
+      }
+    );
   }
 
   public validador: any; //esta variable se la puede usar para realizar la validacion en el html del component
