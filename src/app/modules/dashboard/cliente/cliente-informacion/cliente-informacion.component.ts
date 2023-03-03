@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ClienteService } from '../cliente.service';
 import { AuthService } from '../../../../auth/auth.service';
+import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 
 @Component({
   selector: 'app-cliente-informacion',
@@ -11,6 +12,7 @@ export class ClienteInformacionComponent {
   cliente: any;
 
   constructor(private authService: AuthService) { }
+  
 
   ngOnInit() {
     this.getUser();
@@ -22,4 +24,13 @@ export class ClienteInformacionComponent {
     });
   }
   showDetails= false;
+
+  displayStyle = "none";
+  
+  openPopup() {
+    this.displayStyle = "block";
+  }
+  closePopup() {
+    this.displayStyle = "none";
+  }
 }

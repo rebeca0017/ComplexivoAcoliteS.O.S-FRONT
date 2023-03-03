@@ -22,4 +22,13 @@ export class MecanicoInformacionComponent {
     });
   }
   showDetails= false;
+
+  displayStyle = "none";
+  
+  openPopup() {
+    this.displayStyle = "block";
+  }
+  closePopup() {
+    this.displayStyle = "none";
+  }
 }
