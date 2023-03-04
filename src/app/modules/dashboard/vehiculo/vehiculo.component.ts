@@ -4,17 +4,18 @@ import { Vehiculo } from '../../../models/vehiculo';
 import { AuthService } from '../../../auth/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-vehiculo',
   templateUrl: './vehiculo.component.html',
   styleUrls: ['./vehiculo.component.css']
 })
 export class VehiculoComponent {
-  vehiculo: Vehiculo={}as Vehiculo;
+  vehiculo: Vehiculo = {} as Vehiculo;
   vehiculos: Vehiculo[];
   formGroup: FormGroup;
 
-  constructor(private authService: AuthService, private vehiculoService: VehiculoService, private formBuilder: FormBuilder) { 
+  constructor(private authService: AuthService, private vehiculoService: VehiculoService, private formBuilder: FormBuilder) {
     this.initForm();
   }
 
@@ -26,7 +27,7 @@ export class VehiculoComponent {
       color: ['', [Validators.required]],
 
     });
-    this.formGroup.valueChanges.subscribe((val) => {  console.log(val)});
+    this.formGroup.valueChanges.subscribe((val) => { console.log(val) });
   }
 
   showDetails = false;
@@ -56,8 +57,8 @@ export class VehiculoComponent {
       this.getVehiculos();
     });
   }
-
 }
+
 
 
 

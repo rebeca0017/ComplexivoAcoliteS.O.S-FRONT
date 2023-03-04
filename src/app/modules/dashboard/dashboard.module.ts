@@ -22,6 +22,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MecanicoInformacionComponent } from './mecanico/mecanico-informacion/mecanico-informacion.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { CanvasBoxComponent } from './models-3d/canvas-box/canvas-box.component';
+import { VehiculoComponent } from './vehiculo/vehiculo.component';
+
+
 
 
 @NgModule({
@@ -33,7 +37,9 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     SidebarComponent,
     ScrollToTopComponent,
     ClienteInformacionComponent,
-    MecanicoInformacionComponent
+    MecanicoInformacionComponent,
+    CanvasBoxComponent,
+    VehiculoComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,7 @@ import { AuthClientGuard } from '../../auth/guards/auth-client.guard';
 import { AuthAdminGuard } from '../../auth/guards/auth-admin.guard';
 import { MecanicoInformacionComponent } from '../../modules/dashboard/mecanico/mecanico-informacion/mecanico-informacion.component';
 import { VehiculoComponent } from '../../modules/dashboard/vehiculo/vehiculo.component';
+import { CanvasBoxComponent } from './models-3d/canvas-box/canvas-box.component';
 
 const routes: Routes = [
   {
