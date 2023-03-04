@@ -97,7 +97,7 @@
             <br>
             <div class="form-group col-md-8">
               <label for="inputApellidos">Apellidos:</label>
-              <input style="color: black;" type="text" class="form-control" id="inputApellidos" name="apellidos"
+              <input formControlName="apellidos" style="color: black;" type="text" class="form-control" id="inputApellidos" name="apellidos"
                 [(ngModel)]="mecanico.apellidos">
                 <small *ngIf="formGroup.get('apellidos').errors &&
                   formGroup.get('apellidos').hasError('required')" class="text-danger">Se debe llenar</small>

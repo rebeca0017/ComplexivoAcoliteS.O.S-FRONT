@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./cliente-informacion.component.css']
 })
 export class ClienteInformacionComponent {
-  cliente: User;
+  cliente: User={}as User;
   formGroup: FormGroup;
 
   constructor(private authService: AuthService, private clienteService: ClienteService, private formBuilder: FormBuilder,) {
@@ -48,12 +48,13 @@ export class ClienteInformacionComponent {
     }
 
   ngOnInit() {
-    this.getUser();
+    this.getProfile();
   }
 
-  getUser() {
-    this.authService.getUser().subscribe((res: any) => {
-      this.cliente = res;
+  getProfile() {
+    this.authService.getProfile().subscribe((res: any) => {
+      this.cliente = res.data.user;
+      console.log(res)
     });
   }
   showDetails = false;
@@ -68,6 +69,7 @@ export class ClienteInformacionComponent {
   }
 
   updateUser() {
+    console.log(this.cliente)
     this.clienteService.updateUser(this.cliente).subscribe(
       (response) => {
         console.log('actualizado con exito')

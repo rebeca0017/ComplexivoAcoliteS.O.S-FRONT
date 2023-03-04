@@ -6,5 +6,5 @@ export interface User {
     apellidos:string
     contacto:string
     tipo_identificacion:number
-    identificacion:string
+    cedula:string
 }

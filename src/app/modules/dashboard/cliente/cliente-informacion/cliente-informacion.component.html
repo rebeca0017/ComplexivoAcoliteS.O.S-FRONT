@@ -40,7 +40,7 @@
       <label for="staticidentificacion" class="col-5 col-form-label">Identificacion: </label>
       <div class="col-sm-5">
         <input type="text" readonly class="form-control-plaintext" id="staticidentificacion"
-          value={{cliente.identificacion}}>
+          value={{cliente.cedula}}>
       </div>
     </div>
   </form>
@@ -61,7 +61,7 @@
       </div>
       <div class="modal-body">
         <div *ngIf="showDetails">
-          <form (submit)="updateUser()" class="editar" [formGroup]="formGroup">
+          <form class="editar" [formGroup]="formGroup">
             <div class="form-row">
               <div class="form-group col-md-8">
                 <label for="name">Usuario:</label>
@@ -96,7 +96,7 @@
             <br>
             <div class="form-group col-md-8">
               <label for="inputApellidos">Apellidos:</label>
-              <input style="color: black;" type="text" class="form-control" id="inputApellidos" name="apellidos"
+              <input formControlName="apellidos" style="color: black;" type="text" class="form-control" id="inputApellidos" name="apellidos"
                 [(ngModel)]="cliente.apellidos">
                 <small *ngIf="formGroup.get('apellidos').errors &&
                   formGroup.get('apellidos').hasError('required')" class="text-danger">Se debe llenar</small>
@@ -112,8 +112,8 @@
             <div class="col-md-8">
               <label for="inputIdentificacion">Cedula: </label>
               <input formControlName="cedula" style="color: black;" id="inputIdentificacion" class="form-control"
-                name="identificacion" [(ngModel)]="cliente.identificacion"
-                (change)="validadorDeCedula(cliente.identificacion)" (keypress)="validateFormat($event)">
+                name="identificacion" [(ngModel)]="cliente.cedula"
+                (change)="validadorDeCedula(cliente.cedula)" (keypress)="validateFormat($event)">
               <small *ngIf="!validador" class="text-danger">Cédula Inválida</small>
               <small *ngIf="formGroup.get('cedula').errors &&
                   formGroup.get('cedula').hasError('required')" class="text-danger"></small>

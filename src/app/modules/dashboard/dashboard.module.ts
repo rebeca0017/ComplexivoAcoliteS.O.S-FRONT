@@ -21,6 +21,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MecanicoInformacionComponent } from './mecanico/mecanico-informacion/mecanico-informacion.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
+
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { MecanicoInformacionComponent } from './mecanico/mecanico-informacion/me
     LayoutModule,
     MatSidenavModule,
     MatListModule,
+    NgApexchartsModule
   ],
 })
 export class DashboardModule { }

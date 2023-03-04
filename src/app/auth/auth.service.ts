@@ -74,6 +74,10 @@ export class AuthService {
     }
   }
 
+  getProfile(): Observable<User> {
+    return this.http.get<User>(`${API_URL}/profile`, this.httpOptions);
+  }
+  
   getUser(): Observable<any> {
     const token = this.authLocalStorage.getAccessToken();
     if (!this.authValidator.isTokenValid(token)) {

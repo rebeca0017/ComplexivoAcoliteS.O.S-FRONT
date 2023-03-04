@@ -17,6 +17,6 @@ export class MecanicoService {
     const headers = new HttpHeaders({
       'Authorization': 'Bearer ' + this.authService.getToken()
     });
-    return this.http.put<any>('http://127.0.0.1:8000/api/cliente/update/' + user.id, user);
+    return this.http.put<any>('http://127.0.0.1:8000/api/mecanico/update/' + user.id, user);
   }
 }
