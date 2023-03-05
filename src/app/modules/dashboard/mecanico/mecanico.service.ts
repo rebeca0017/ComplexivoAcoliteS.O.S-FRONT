@@ -3,20 +3,23 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../../../models/user';
 import { Observable } from 'rxjs';
 import { AuthService } from '../../../auth/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MecanicoService {
-  private headers = new HttpHeaders();
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
+
+  private url = environment.API_URL + '/cliente';
 
   constructor(private http: HttpClient,  private authService: AuthService) { 
   }
   
-  updateUser(user: User): Observable<any> {
-    const headers = new HttpHeaders({
-      'Authorization': 'Bearer ' + this.authService.getToken()
-    });
-    return this.http.put<any>('http://127.0.0.1:8000/api/mecanico/update/' + user.id, user);
+  updateUser(user: User): Observable<User> {
+    
+    return this.http.put<User>(`${this.url}/update/${user.id}`, user, this.httpOptions);
   }
 }

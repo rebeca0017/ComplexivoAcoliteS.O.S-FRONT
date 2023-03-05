@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { ClienteService } from './cliente.service';
+import { ClienteService } from '../cliente.service';
 import { AuthService } from '../../../../auth/auth.service';
 import { User } from '../../../../models/user';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-cliente-informacion',

@@ -35,6 +35,7 @@ export type ChartOptions = {
   styleUrls: ['./cliente.component.css']
 })
 export class ClienteComponent {
+
   @ViewChild("chart") chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
@@ -233,7 +234,7 @@ export class ClienteComponent {
         inverseOrder: true
       },
       title: {
-        text: "Range Area with Forecast Line (Combo)"
+        text: "Gráfica de Cliente"
       },
       markers: {
         hover: {
@@ -242,4 +243,5 @@ export class ClienteComponent {
       }
     };
   }
+
 }

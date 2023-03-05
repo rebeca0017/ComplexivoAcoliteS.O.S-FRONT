@@ -1,3 +1,11 @@
+ng-particles {
+  position: absolute !important;
+  width: 100vw;
+  max-height: 100vh;
+  bottom: 0px;
+  z-index: -1;
+}
+
 .container{
   margin-left: 300px;
   text-align: center;

@@ -27,7 +27,6 @@ import { VehiculoComponent } from './vehiculo/vehiculo.component';
 
 
 
-
 @NgModule({
   declarations: [
     MainComponent,
@@ -56,7 +55,7 @@ import { VehiculoComponent } from './vehiculo/vehiculo.component';
     LayoutModule,
     MatSidenavModule,
     MatListModule,
-    NgApexchartsModule
+    NgApexchartsModule,
   ],
 })
 export class DashboardModule { }

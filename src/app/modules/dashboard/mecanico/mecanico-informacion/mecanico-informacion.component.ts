@@ -12,12 +12,12 @@ export class MecanicoInformacionComponent {
   mecanico: any;
   formGroup: FormGroup;
 
-  constructor(private authService: AuthService,private mecanicoService: MecanicoService, private formBuilder: FormBuilder,) { 
+  constructor(private authService: AuthService, private mecanicoService: MecanicoService, private formBuilder: FormBuilder,) {
     this.initForm();
   }
 
   ngOnInit() {
-    this.getUser();
+    this.getProfile();
   }
 
   initForm() {
@@ -27,10 +27,10 @@ export class MecanicoInformacionComponent {
       nombres: ['', [Validators.required]],
       apellidos: ['', [Validators.required]],
       cedula: ['', [Validators.required]],
-      contacto: ['', [Validators.required,Validators.maxLength(10),Validators.minLength(10)]],
+      contacto: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(10)]],
 
     });
-    this.formGroup.valueChanges.subscribe((val) => {  console.log(val)});
+    this.formGroup.valueChanges.subscribe((val) => { console.log(val) });
   }
 
   validateFormat(event) {
@@ -42,22 +42,23 @@ export class MecanicoInformacionComponent {
       key = String.fromCharCode(key);
     }
     const regex = /[0-9]|\./;
-     if (!regex.test(key)) {
+    if (!regex.test(key)) {
       event.returnValue = false;
-       if (event.preventDefault) {
+      if (event.preventDefault) {
         event.preventDefault();
-       }
-     }
+      }
     }
+  }
 
-  getUser() {
-    this.authService.getUser().subscribe((res: any) => {
-      this.mecanico = res;
+  getProfile() {
+    this.authService.getProfile().subscribe((res: any) => {
+      this.mecanico = res.data.user;
+      console.log(res)
     });
   }
 
   displayStyle = "none";
-  
+
   openPopup() {
     this.displayStyle = "block";
   }

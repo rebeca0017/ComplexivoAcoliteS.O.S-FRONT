@@ -40,7 +40,7 @@
       <label for="staticidentificacion" class="col-5 col-form-label">Identificacion: </label>
       <div class="col-sm-5">
         <input type="text" readonly class="form-control-plaintext" id="staticidentificacion"
-          value={{mecanico.identificacion}}>
+          value={{mecanico.cedula}}>
       </div>
     </div>
   </form>
@@ -102,18 +102,11 @@
                   formGroup.get('apellidos').hasError('required')" class="text-danger">Se debe llenar</small>
             </div>
             <br>
-            <!-- <div class="form-row">
-              <div class="form-group col-md-8">
-                <label formControlName="" for="inputidtipo">Tipo de Identificación: </label>
-                <input style="color: black;" type="text" class="form-control" id="inputidtipo"
-                  name="tipo_identificacion" [(ngModel)]="cliente.tipo_identificacion">
-              </div>
-              <br> -->
             <div class="col-md-8">
               <label for="inputIdentificacion">Cedula: </label>
               <input formControlName="cedula" style="color: black;" id="inputIdentificacion" class="form-control"
-                name="identificacion" [(ngModel)]="mecanico.identificacion"
-                (change)="validadorDeCedula(mecanico.identificacion)" (keypress)="validateFormat($event)">
+                name="identificacion" [(ngModel)]="mecanico.cedula"
+                (change)="validadorDeCedula(mecanico.ceula)" (keypress)="validateFormat($event)">
               <small *ngIf="!validador" class="text-danger">Cédula Inválida</small>
               <small *ngIf="formGroup.get('cedula').errors &&
                   formGroup.get('cedula').hasError('required')" class="text-danger"></small>
