@@ -39,8 +39,7 @@
     <div class="form-group row">
       <label for="staticidentificacion" class="col-5 col-form-label">Identificacion: </label>
       <div class="col-sm-5">
-        <input type="text" readonly class="form-control-plaintext" id="staticidentificacion"
-          value={{mecanico.cedula}}>
+        <input type="text" readonly class="form-control-plaintext" id="staticidentificacion" value={{mecanico.cedula}}>
       </div>
     </div>
   </form>
@@ -96,17 +95,17 @@
             <br>
             <div class="form-group col-md-8">
               <label for="inputApellidos">Apellidos:</label>
-              <input formControlName="apellidos" style="color: black;" type="text" class="form-control" id="inputApellidos" name="apellidos"
-                [(ngModel)]="mecanico.apellidos">
-                <small *ngIf="formGroup.get('apellidos').errors &&
+              <input formControlName="apellidos" style="color: black;" type="text" class="form-control"
+                id="inputApellidos" name="apellidos" [(ngModel)]="mecanico.apellidos">
+              <small *ngIf="formGroup.get('apellidos').errors &&
                   formGroup.get('apellidos').hasError('required')" class="text-danger">Se debe llenar</small>
             </div>
             <br>
             <div class="col-md-8">
               <label for="inputIdentificacion">Cedula: </label>
               <input formControlName="cedula" style="color: black;" id="inputIdentificacion" class="form-control"
-                name="identificacion" [(ngModel)]="mecanico.cedula"
-                (change)="validadorDeCedula(mecanico.ceula)" (keypress)="validateFormat($event)">
+                name="identificacion" [(ngModel)]="mecanico.cedula" (change)="validadorDeCedula(mecanico.ceula)"
+                (keypress)="validateFormat($event)">
               <small *ngIf="!validador" class="text-danger">Cédula Inválida</small>
               <small *ngIf="formGroup.get('cedula').errors &&
                   formGroup.get('cedula').hasError('required')" class="text-danger"></small>
@@ -115,20 +114,20 @@
             <br>
             <div class="form-group col-md-8">
               <label for="phone">Contacto: </label>
-              <input formControlName="contacto" style="color: black;" type="tel" class="form-control" id="phone" name="contacto"
-                [(ngModel)]="mecanico.contacto" (keypress)="validateFormat($event)">
-                <small *ngIf="formGroup.get('contacto').errors &&
+              <input formControlName="contacto" style="color: black;" type="tel" class="form-control" id="phone"
+                name="contacto" [(ngModel)]="mecanico.contacto" (keypress)="validateFormat($event)">
+              <small *ngIf="formGroup.get('contacto').errors &&
                   formGroup.get('contacto').hasError('required')" class="text-danger">Se debe llenar</small>
-                  <small *ngIf="formGroup.get('contacto').errors &&
+              <small *ngIf="formGroup.get('contacto').errors &&
                   formGroup.get('contacto').hasError('maxlength')" class="text-danger">Maximo 10 dígitos</small>
-                  <small *ngIf="formGroup.get('contacto').errors &&
+              <small *ngIf="formGroup.get('contacto').errors &&
                   formGroup.get('contacto').hasError('minlength')" class="text-danger">minimo 10 dígitos</small>
             </div>
             <br>
 
             <br><br>
             <button [disabled]="!formGroup.valid" type="submit" class="btn btn-primary btn-guardar"
-              (click)="updateUser()" (click)="closePopup()">Guardar</button>
+              (click)="updateUser()" (click)="closePopup()" (click)="openPopupOK()">Guardar</button>
           </form>
         </div>
 
@@ -136,6 +135,26 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" (click)="closePopup()">
           Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyleOK}">
+  <div class="bg-blur-modal"></div>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><b>Actualizado</b></h4>
+      </div>
+      <div class="modal-body exito">
+        <img class="exito-img" src="https://img.icons8.com/color/100/null/ok--v1.png"/>
+        <h1>¡Sus datos se actualizaron exitosamente!</h1>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success btn-okcambios" (click)="closePopupOK()">
+          Ok
         </button>
       </div>
     </div>

@@ -66,13 +66,22 @@ export class MecanicoInformacionComponent {
     this.displayStyle = "none";
   }
 
+  displayStyleOK = "none";
+  openPopupOK() {
+    this.displayStyleOK = "block";
+  }
+
+  closePopupOK() {
+    this.displayStyleOK = "none";
+  }
+
   updateUser() {
     this.mecanicoService.updateUser(this.mecanico).subscribe(
       (response) => {
-        console.log('actualizado con exito')
+        console.log('actualizado con exito');
       },
       (error) => {
-        console.log('no se pudo actualizar el cliente')
+        console.log('no se pudo actualizar el cliente');
       }
     );
   }

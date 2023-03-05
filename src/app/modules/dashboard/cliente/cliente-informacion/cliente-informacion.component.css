@@ -226,3 +226,24 @@ margin-top: 60px;
 input:invalid{
   border: 2px solid red;
 }
+
+
+.exito{
+  align-items: center;
+  text-align: center;
+  color: white;
+  text-align: left;
+  margin: auto;
+  font-size: 15px;
+}
+
+.exito-img{
+display: block;
+margin: auto;
+}
+
+.btn-okcambios{
+text-align: center;
+margin: auto;
+font-size: 20px;
+}

@@ -68,6 +68,15 @@ export class ClienteInformacionComponent {
     this.displayStyle = "none";
   }
 
+  displayStyleOK = "none";
+  openPopupOK() {
+    this.displayStyleOK = "block";
+  }
+
+  closePopupOK() {
+    this.displayStyleOK = "none";
+  }
+
   updateUser() {
     console.log(this.cliente)
     this.clienteService.updateUser(this.cliente).subscribe(

@@ -133,7 +133,7 @@
 
             <br><br>
             <button [disabled]="!formGroup.valid" type="submit" class="btn btn-primary btn-guardar"
-              (click)="updateUser()" (click)="closePopup()">Guardar</button>
+              (click)="updateUser()" (click)="closePopup()" (click)="openPopupOK()">Guardar</button>
           </form>
         </div>
 
@@ -141,6 +141,27 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" (click)="closePopup()">
           Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyleOK}">
+  <div class="bg-blur-modal"></div>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><b>Actualizado</b></h4>
+      </div>
+      <div class="modal-body exito">
+        <img class="exito-img" src="https://img.icons8.com/color/100/null/ok--v1.png"/>
+        <h1>¡Sus datos se actualizaron exitosamente!</h1>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success btn-okcambios" (click)="closePopupOK()">
+          Ok
         </button>
       </div>
     </div>
