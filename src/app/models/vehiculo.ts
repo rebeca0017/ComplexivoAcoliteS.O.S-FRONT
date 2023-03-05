@@ -1,4 +1,5 @@
 export interface  Vehiculo {
+    id: number
     marca:string
     placa:string
     color:string

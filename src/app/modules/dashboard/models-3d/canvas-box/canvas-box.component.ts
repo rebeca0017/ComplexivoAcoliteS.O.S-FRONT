@@ -21,11 +21,11 @@ export class CanvasBoxComponent implements OnInit {
 
     const material = new THREE.MeshToonMaterial();
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    const ambientLight = new THREE.AmbientLight(0x000000, 0.5);
     scene.add(ambientLight);
 
-    const pointLight = new THREE.PointLight(0xffffff, 0.5);
-    pointLight.position.x = 2;
+    const pointLight = new THREE.PointLight(0x999999, 0.5);
+    pointLight.position.x = 5;
     pointLight.position.y = 2;
     pointLight.position.z = 2;
     scene.add(pointLight);
@@ -60,7 +60,7 @@ export class CanvasBoxComponent implements OnInit {
     const renderer = new THREE.WebGLRenderer({
       canvas: canvas,
     });
-    renderer.setClearColor(0xe232222, 1);
+    renderer.setClearColor(0xffffff, 1);
     renderer.setSize(canvasSizes.width, canvasSizes.height);
 
     window.addEventListener('resize', () => {

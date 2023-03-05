@@ -1,3 +1,4 @@
+
 <!--animacion-->
 <div class="burbujas">
   <div class="burbuja"></div>
@@ -39,14 +40,12 @@
     <div class="form-group row">
       <label for="staticidentificacion" class="col-5 col-form-label">Identificacion: </label>
       <div class="col-sm-5">
-        <input type="text" readonly class="form-control-plaintext" id="staticidentificacion"
-          value={{cliente.cedula}}>
+        <input type="text" readonly class="form-control-plaintext" id="staticidentificacion" value={{cliente.cedula}}>
       </div>
     </div>
   </form>
 
-  <button type="button" class="btn btn-primary btn-editar" (click)="showDetails = !showDetails"
-    (click)="openPopup()">editar</button>
+  <button type="button" class="btn btn-primary btn-editar" (click)="openPopup()">editar</button>
 </div>
 
 
@@ -60,7 +59,7 @@
         <h4 class="modal-title"><b>Editar Datos Personales</b></h4>
       </div>
       <div class="modal-body">
-        <div *ngIf="showDetails">
+        <div>
           <form class="editar" [formGroup]="formGroup">
             <div class="form-row">
               <div class="form-group col-md-8">
@@ -96,9 +95,9 @@
             <br>
             <div class="form-group col-md-8">
               <label for="inputApellidos">Apellidos:</label>
-              <input formControlName="apellidos" style="color: black;" type="text" class="form-control" id="inputApellidos" name="apellidos"
-                [(ngModel)]="cliente.apellidos">
-                <small *ngIf="formGroup.get('apellidos').errors &&
+              <input formControlName="apellidos" style="color: black;" type="text" class="form-control"
+                id="inputApellidos" name="apellidos" [(ngModel)]="cliente.apellidos">
+              <small *ngIf="formGroup.get('apellidos').errors &&
                   formGroup.get('apellidos').hasError('required')" class="text-danger">Se debe llenar</small>
             </div>
             <br>
@@ -112,8 +111,8 @@
             <div class="col-md-8">
               <label for="inputIdentificacion">Cedula: </label>
               <input formControlName="cedula" style="color: black;" id="inputIdentificacion" class="form-control"
-                name="identificacion" [(ngModel)]="cliente.cedula"
-                (change)="validadorDeCedula(cliente.cedula)" (keypress)="validateFormat($event)">
+                name="identificacion" [(ngModel)]="cliente.cedula" (change)="validadorDeCedula(cliente.cedula)"
+                (keypress)="validateFormat($event)">
               <small *ngIf="!validador" class="text-danger">Cédula Inválida</small>
               <small *ngIf="formGroup.get('cedula').errors &&
                   formGroup.get('cedula').hasError('required')" class="text-danger"></small>
@@ -122,13 +121,13 @@
             <br>
             <div class="form-group col-md-8">
               <label for="phone">Contacto: </label>
-              <input formControlName="contacto" style="color: black;" type="tel" class="form-control" id="phone" name="contacto"
-                [(ngModel)]="cliente.contacto" (keypress)="validateFormat($event)">
-                <small *ngIf="formGroup.get('contacto').errors &&
+              <input formControlName="contacto" style="color: black;" type="tel" class="form-control" id="phone"
+                name="contacto" [(ngModel)]="cliente.contacto" (keypress)="validateFormat($event)">
+              <small *ngIf="formGroup.get('contacto').errors &&
                   formGroup.get('contacto').hasError('required')" class="text-danger">Se debe llenar</small>
-                  <small *ngIf="formGroup.get('contacto').errors &&
+              <small *ngIf="formGroup.get('contacto').errors &&
                   formGroup.get('contacto').hasError('maxlength')" class="text-danger">Maximo 10 dígitos</small>
-                  <small *ngIf="formGroup.get('contacto').errors &&
+              <small *ngIf="formGroup.get('contacto').errors &&
                   formGroup.get('contacto').hasError('minlength')" class="text-danger">minimo 10 dígitos</small>
             </div>
             <br>

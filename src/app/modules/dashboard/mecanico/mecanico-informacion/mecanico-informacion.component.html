@@ -46,8 +46,7 @@
   </form>
 
   <br> <br> <br>
-  <button type="button" class="btn btn-primary" (click)="showDetails = !showDetails"
-    (click)="openPopup()">editar</button>
+  <button type="button" class="btn btn-primary" (click)="openPopup()">editar</button>
 </div>
 
 
@@ -61,7 +60,7 @@
         <h4 class="modal-title"><b>Editar Datos Personales</b></h4>
       </div>
       <div class="modal-body">
-        <div *ngIf="showDetails">
+        <div>
           <form (submit)="updateUser()" class="editar" [formGroup]="formGroup">
             <div class="form-row">
               <div class="form-group col-md-8">

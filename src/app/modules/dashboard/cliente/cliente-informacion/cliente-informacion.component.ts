@@ -57,7 +57,6 @@ export class ClienteInformacionComponent {
       console.log(res)
     });
   }
-  showDetails = false;
 
   displayStyle = "none";
 

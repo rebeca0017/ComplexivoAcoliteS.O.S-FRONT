@@ -13,17 +13,19 @@
 
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="form">
       <div *ngIf="!vehiculos || vehiculos.length == 0">El usuario no tiene vehículos</div>
 
-      <table *ngIf="vehiculos && vehiculos.length > 0">
+      <table class="datostabla" *ngIf="vehiculos && vehiculos.length > 0">
         <thead>
           <tr>
             <th>Marca</th>
             <th>Modelo</th>
             <th>Color</th>
             <th>Placa</th>
+            <th>Editar</th>
           </tr>
+          <br><br>
         </thead>
         <tbody>
           <tr *ngFor="let vehiculo of vehiculos">
@@ -31,23 +33,24 @@
             <td>{{ vehiculo.modelo }}</td>
             <td><i class="fa-solid fa-car" style="color: {{ vehiculo.color }}; font-size: 25px;"></i></td>
             <td>{{ vehiculo.placa }}</td>
+            <td><button  (click)="openPopup()" (click)="getVehiculo(vehiculo.id)"><i class="fa-solid fa-pen-to-square"></i></button></td>
           </tr>
         </tbody>
       </table>
+<br><br>
+      <button class="btn btn-primary"  (click)="openPopup()">Crear Vehiculo</button>
 
-      <button (click)="showDetails = !showDetails" (click)="openPopup()">Crear Vehiculo</button>
 
-
-
+<!-- crear vehículo -->
       <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
         <div class="bg-blur-modal"></div>
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title"><b>Editar Datos Personales</b></h4>
+              <h4 class="modal-title"><b>{{title}}</b></h4>
             </div>
             <div class="modal-body">
-              <div *ngIf="showDetails">
+              <div >
                 <form class="editar" [formGroup]="formGroup">
                   <div class="form-row">
                     <div class="form-group col-md-8">
@@ -90,7 +93,74 @@
                   <br>
                   <br><br>
                   <button [disabled]="!formGroup.valid" type="submit" class="btn btn-primary btn-guardar"
-                    (click)="createVehiculo()" (click)="closePopup()">Guardar</button>
+                    (click)="submit()" (click)="clear()" (click)="closePopup()">Guardar</button>
+                </form>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" (click)="closePopup()" (click)="clear()">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- editar vehiculo -->
+
+      <!-- <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+        <div class="bg-blur-modal"></div>
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title"><b>Editar Vehículo</b></h4>
+            </div>
+            <div class="modal-body">
+              <div *ngIf="showDetailsEdit">
+                <form class="editar" [formGroup]="formGroup">
+                  <div class="form-row">
+                    <div class="form-group col-md-8">
+                      <i class="fa-solid fa-car" style="color: {{ vehiculo.color }}; font-size: 25px;"></i> <br>
+                      <label for="name">Placa:</label>
+                      <input formControlName="placa" style="color: black;" type="text" id="name" name="name"
+                        class="form-control" [(ngModel)]="vehiculo.placa">
+                      <small *ngIf="formGroup.get('placa').errors &&
+                  formGroup.get('placa').hasError('maxlength')" class="text-danger">Máximo 6 caracteres</small>
+                      <small *ngIf="formGroup.get('placa').errors &&
+                  formGroup.get('placa').hasError('required')" class="text-danger">Se debe llenar</small>
+                      <small *ngIf="formGroup.get('placa').errors &&
+                  formGroup.get('placa').hasError('minlength')" class="text-danger">Minimo 5 caracteres</small>
+                    </div>
+                    <br>
+                    <div class="form-group col-md-8">
+                      <label for="email">Marca: </label>
+                      <input formControlName="marca" style="color: black;" type="text" id="inputmarca" name="marca"
+                        class="form-control" [(ngModel)]="vehiculo.marca">
+                      <small *ngIf="formGroup.get('marca').errors &&
+                  formGroup.get('marca').hasError('required')" class="text-danger">Se debe llenar</small>
+                    </div>
+                    <br>
+                    <div class="form-group col-md-8">
+                      <label for="modelo">Modelo: </label>
+                      <input formControlName="modelo" style="color: black;" type="text" id="inputModel" name="modelo"
+                        class="form-control" [(ngModel)]="vehiculo.modelo">
+                      <small *ngIf="formGroup.get('modelo').errors &&
+                  formGroup.get('modelo').hasError('required')" class="text-danger">Se debe llenar</small>
+                    </div>
+                    <br>
+                  </div>
+                  <div class="form-group col-md-8">
+                    <label for="inputNombres">Color:</label>
+                    <input formControlName="color" type="color" class="form-control form-control-color w-100"
+                      id="exampleColorInput" [(ngModel)]="vehiculo.color" title="Choose your color">
+                    <small *ngIf="formGroup.get('color').errors &&
+                  formGroup.get('color').hasError('required')" class="text-danger">Se debe llenar</small>
+                  </div>
+                  <br>
+                  <br><br>
+                  <button [disabled]="!formGroup.valid" type="submit" class="btn btn-primary btn-guardar"
+                    (click)="updateVehiculo()" (click)="closePopup()">Guardar</button>
                 </form>
               </div>
 
@@ -102,11 +172,14 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
+
     </div>
     <div class="img3d">
-      <!-- example carro -->
+
+      <!-- example rueda -->
       <app-canvas-box></app-canvas-box>
+
     </div>
   </div>
 </div>

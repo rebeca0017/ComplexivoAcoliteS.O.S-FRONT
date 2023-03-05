@@ -20,8 +20,16 @@ export class VehiculoService {
     return this.http.get<Vehiculo[]>(`${this.url}`);
   }
 
+  getVehicle(id:number): Observable<Vehiculo[] > {
+    return this.http.get<Vehiculo[]>(`${this.url}/${id}`);
+  }
+
   createVehicle(vehiculo: Vehiculo): Observable<Vehiculo> {
     
     return this.http.post<Vehiculo>(`${this.url}/create`, vehiculo, this.httpOptions);
   }
+
+  updateVehicle(vehiculo: Vehiculo): Observable<Vehiculo> {
+    return this.http.put<Vehiculo>(`${this.url}/update/${vehiculo.id}`, vehiculo, this.httpOptions);
+}
 }

@@ -186,6 +186,29 @@
     z-index: -3;
     position: fixed;
     margin-left: -200px;
-    margin-top: -16px;
-    
+    margin-top: -16px;  
+ }
+
+ /*form*/
+
+ .form{
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.74);
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 700px;
+    border-radius: 8%;
+    margin: auto;
+ }
+
+ table{
+    margin: auto;
+ }
+
+ .datostabla{
+    padding-top: 20px;
+ }
+
+ .container{
+    width: 1110px;
  }

@@ -55,7 +55,6 @@ export class MecanicoInformacionComponent {
       this.mecanico = res;
     });
   }
-  showDetails= false;
 
   displayStyle = "none";
   
