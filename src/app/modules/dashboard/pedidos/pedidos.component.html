@@ -28,7 +28,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let pedido of pedidos">
-              <td>{{ pedido.id_vehiculo }}</td>
+              <td *ngFor="let vehiculo of vehiculos">{{ vehiculo.placa }}</td>
               <td>{{ pedido.ubicacion }}</td>
               <td>{{ pedido.detalle }}</td>
               <td>{{ pedido.estado }}</td>
@@ -53,10 +53,11 @@
                     <div class="form-row">
                       <div class="form-group col-md-8">
                     
-                        <label for="name">Vehiculo:</label>
-                        <input formControlName="id_vehiculo" style="color: black;" type="text" id="" name="id_vehiculo">
-                        <small *ngIf="formGroup.get('id_vehiculo').errors &&
-                        formGroup.get('id_vehiculo').hasError('required')" class="text-danger">Se debe llenar</small>
+                        <label for="name">Vehículo:</label>
+                              <select formControlName="id_vehiculo" name="id_vehiculo" style="color: black;">
+                                <option *ngFor="let vehiculo of vehiculos" [value]="vehiculo.id">{{ vehiculo.placa }}</option>
+                              </select>
+                              <small *ngIf="formGroup.get('id_vehiculo').errors && formGroup.get('id_vehiculo').hasError('required')" class="text-danger">Se debe llenar</small>
 
                         <label for="name">ubicacion:</label>
                             <input formControlName="ubicacion" style="color: black;" type="text" id="" name="ubicacion"

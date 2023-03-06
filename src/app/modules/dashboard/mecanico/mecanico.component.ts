@@ -42,6 +42,8 @@ export type ChartOptions = {
 export class MecanicoComponent {
   pedido: Pedido = {} as Pedido;
   pedidos: Pedido[];
+  vehiculo: Vehiculo = {} as Vehiculo;
+  vehiculos: Vehiculo[];
   mecanico: any;
   
 
@@ -67,6 +69,12 @@ export class MecanicoComponent {
   }
   showDetails= false;
   
+  getVehiculos() {
+    this.mecanicoService.getVehicles().subscribe((res: any) => {
+      this.vehiculos = res;
+      console.log(res)
+    });
+  }
   
   getPedidos() {
     this.pedidoService.getOrders().subscribe((res: any) => {

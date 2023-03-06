@@ -13,6 +13,7 @@ import { MecanicoInformacionComponent } from '../../modules/dashboard/mecanico/m
 import { VehiculoComponent } from '../../modules/dashboard/vehiculo/vehiculo.component';
 import { CanvasBoxComponent } from './models-3d/canvas-box/canvas-box.component';
 
+
 const routes: Routes = [
   {
     path: '',

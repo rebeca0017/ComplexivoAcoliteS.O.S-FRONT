@@ -20,6 +20,7 @@ import { EstaticaModule } from './modules/estatica/estatica.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 
+
 @NgModule({
   declarations: [
     AppComponent,

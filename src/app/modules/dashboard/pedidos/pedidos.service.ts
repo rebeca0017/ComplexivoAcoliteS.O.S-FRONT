@@ -19,9 +19,9 @@ export class PedidoService {
   constructor(private http: HttpClient, private authService: AuthService) { }
 
    //obtener los vehiculos para mostarlos en el select 
-   /*getVehicles(): Observable<Vehiculo[] > {
-    return this.http.get<Vehiculo[]>(`${this.url}`);
-  }*/
+  getVehicles(): Observable<Vehiculo[] > {
+    return this.http.get<Vehiculo[]>(`${this.urlV}`);
+  }
 
   getOrders(): Observable<Pedido[] > {
     return this.http.get<Pedido[]>(`${this.url}`);
