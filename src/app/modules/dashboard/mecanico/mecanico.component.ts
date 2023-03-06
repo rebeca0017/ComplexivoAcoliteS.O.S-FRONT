@@ -235,7 +235,7 @@ export class MecanicoComponent {
         inverseOrder: true
       },
       title: {
-        text: "Gráfica de Cliente"
+        text: "Gráfica de Mecánico"
       },
       markers: {
         hover: {

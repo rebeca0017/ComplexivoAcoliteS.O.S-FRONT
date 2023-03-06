@@ -128,6 +128,5 @@ export class ClienteInformacionComponent {
       cedulaCorrecta = false;
     }
     this.validador = cedulaCorrecta;
-
   }
 }
