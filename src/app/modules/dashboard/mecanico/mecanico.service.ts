@@ -26,6 +26,9 @@ export class MecanicoService {
   getOrders(): Observable<Pedido[] > {
     return this.http.get<Pedido[]>(`${this.url}`);
   }
+  getVehicles(): Observable<Vehiculo[] > {
+    return this.http.get<Vehiculo[]>(`${this.urlV}`);
+  }
   
   updateUser(user: User): Observable<any> {
     const headers = new HttpHeaders({

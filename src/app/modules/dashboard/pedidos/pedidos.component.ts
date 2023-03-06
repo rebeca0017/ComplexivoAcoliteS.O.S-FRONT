@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { PedidoService } from './pedidos.service';
 
+
 import { AuthService } from '../../../auth/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Pedido } from 'src/app/models/pedido';
+import { VehiculoService } from '../vehiculo/vehiculo.service';
+import { Vehiculo } from 'src/app/models/vehiculo';
 
 
 @Component({
@@ -14,9 +17,11 @@ import { Pedido } from 'src/app/models/pedido';
 export class PedidosComponent {
   pedido: Pedido = {} as Pedido;
   pedidos: Pedido[];
+  vehiculo: Vehiculo = {} as Vehiculo;
+  vehiculos: Vehiculo[];
   formGroup: FormGroup;
 
-  constructor(private authService: AuthService, private pedidoService: PedidoService, private formBuilder: FormBuilder) {
+  constructor(private authService: AuthService,private pedidoService: PedidoService, private formBuilder: FormBuilder) {
     this.initForm();
   }
 
@@ -45,7 +50,15 @@ export class PedidosComponent {
 
 
   ngOnInit() {
+    
     this.getPedidos();
+    this.getVehiculos();
+  }
+  getVehiculos() {
+    this.pedidoService.getVehicles().subscribe((res: any) => {
+      this.vehiculos = res;
+      console.log(res)
+    });
   }
 
   getPedidos() {

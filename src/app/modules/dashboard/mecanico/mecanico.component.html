@@ -6,6 +6,7 @@
         <table *ngIf="pedidos && pedidos.length " >
             <thead>
               <tr>
+                
                 <th>Vehículo</th>
                 <th>Ubicación</th>
                 <th>Detalle</th>
@@ -14,7 +15,7 @@
             </thead>
             <tbody>
               <tr *ngFor="let pedido of pedidos">
-                <td>{{ pedido.id_vehiculo }}</td>
+                <td *ngFor="let vehiculo of vehiculos">{{ vehiculo.placa }}</td>
                 <td>{{ pedido.ubicacion }}</td>
                 <td>{{ pedido.detalle }}</td>
                 <td>
