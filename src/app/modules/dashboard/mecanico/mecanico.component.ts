@@ -4,6 +4,7 @@ import { Pedido } from '../../../models/pedido';
 import { MecanicoService } from '../mecanico/mecanico.service';
 import { PedidoService } from '../pedidos/pedidos.service';
 import { VehiculoService } from '../vehiculo/vehiculo.service';
+import { Vehiculo } from '../../../models/vehiculo';
 
 import {
   ChartComponent,
@@ -42,72 +43,12 @@ export type ChartOptions = {
 export class MecanicoComponent {
   pedido: Pedido = {} as Pedido;
   pedidos: Pedido[];
+  mecanico: any;
   vehiculo: Vehiculo = {} as Vehiculo;
   vehiculos: Vehiculo[];
-  mecanico: any;
-  
-
-  constructor(private authService: AuthService, private mecanicoService: MecanicoService, private pedidoService: PedidoService) {
 
 
-
-    
-   }
-
-  ngOnInit() {
-    this.getUser();
-    this.getPedidos();
-    this.getProfile();
-  }
-
-  
-
-  getUser() {
-    this.authService.getUser().subscribe((res: any) => {
-      this.mecanico = res;
-    });
-  }
-  showDetails= false;
-  
-  getVehiculos() {
-    this.mecanicoService.getVehicles().subscribe((res: any) => {
-      this.vehiculos = res;
-      console.log(res)
-    });
-  }
-  
-  getPedidos() {
-    this.pedidoService.getOrders().subscribe((res: any) => {
-      this.pedidos = res;
-      console.log(res)
-    });
-  }
-
-  aceptarPedido(idPedido: number, idMecanico:number): void {
-    this.mecanicoService.aceptarPedido(idPedido, idMecanico)
-      .subscribe(
-        response => {
-          console.log(response);
-        },
-        error => {
-          console.log(error);
-        }
-      );
-  }
-  
- 
-
-  getProfile() {
-    this.authService.getProfile().subscribe((res: any) => {
-      this.mecanico = res.data.user;
-      console.log(res)
-    });
-  }
-
-  @ViewChild("chart") chart: ChartComponent;
-  public chartOptions: Partial<ChartOptions>;
-
- 
+  constructor(private authService: AuthService, private mecanicoService: MecanicoService, private pedidoService: PedidoService, private vehiculoservice: VehiculoService) {
     this.chartOptions = {
       series: [
         {
@@ -311,7 +252,67 @@ export class MecanicoComponent {
       }
     };
 
-   }
+
+
+
+  }
+
+  ngOnInit() {
+    this.getUser();
+    this.getPedidos();
+    this.getProfile();
+  }
+
+
+
+  getUser() {
+    this.authService.getUser().subscribe((res: any) => {
+      this.mecanico = res;
+    });
+  }
+  showDetails = false;
+
+  getVehiculos() {
+    this.mecanicoService.getVehicles().subscribe((res: any) => {
+      this.vehiculos = res;
+      console.log(res)
+    });
+  }
+
+  getPedidos() {
+    this.pedidoService.getOrders().subscribe((res: any) => {
+      this.pedidos = res;
+      console.log(res)
+    });
+  }
+
+  aceptarPedido(idPedido: number, idMecanico: number): void {
+    this.mecanicoService.aceptarPedido(idPedido, idMecanico)
+      .subscribe(
+        response => {
+          console.log(response);
+          this.getPedidos();
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
+
+
+
+  getProfile() {
+    this.authService.getProfile().subscribe((res: any) => {
+      this.mecanico = res.data.user;
+      console.log(res)
+    });
+  }
+
+  @ViewChild("chart") chart: ChartComponent;
+  public chartOptions: Partial<ChartOptions>;
+
+
+}
 
 
 

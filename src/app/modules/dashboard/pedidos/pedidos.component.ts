@@ -37,7 +37,9 @@ export class PedidosComponent {
     this.formGroup.valueChanges.subscribe((val) => { console.log(val) });
   }
 
-  showDetails = false;
+  clear(){
+    this.pedido = {} as Pedido;
+  }
 
   displayStyle = "none";
 
@@ -62,7 +64,7 @@ export class PedidosComponent {
   }
 
   getPedidos() {
-    this.pedidoService.getOrders().subscribe((res: any) => {
+    this.pedidoService.getOrderByCliente().subscribe((res: any) => {
       this.pedidos = res;
       console.log(res)
     });

@@ -37,10 +37,6 @@ export class MecanicoService {
   }
 
   aceptarPedido(idPedido: number, idMecanico: number): Observable<any> {
-    const headers = new HttpHeaders({
-      'Authorization': 'Bearer ' + this.authService.getToken()
-    });
-    const body = { idMecanico: idMecanico };
-    return this.http.put<any>(`http://127.0.0.1:8000/api/mecanico/${idPedido}/aceptar`, body, { headers: headers });
+    return this.http.put<any>(`http://127.0.0.1:8000/api/mecanico/${idMecanico}/pedido/${idPedido}/aceptar`, this.httpOptions);
   }
 }

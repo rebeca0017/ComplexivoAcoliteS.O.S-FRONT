@@ -14,7 +14,7 @@ export class PedidoService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
   private urlV = environment.API_URL + '/vehiculos';
-  private url = environment.API_URL + '/mecanico/pedidos';
+  private url = environment.API_URL + '/pedidos';
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
@@ -25,6 +25,10 @@ export class PedidoService {
 
   getOrders(): Observable<Pedido[] > {
     return this.http.get<Pedido[]>(`${this.url}`);
+  }
+
+  getOrderByCliente(): Observable<Pedido[] > {
+    return this.http.get<Pedido[]>(`${this.url}/cliente/historial`);
   }
 
   createPedido(pedido: Pedido): Observable<Pedido> {
