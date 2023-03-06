@@ -1,4 +1,3 @@
-
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,6 +19,7 @@ import { EstaticaRoutingModule } from './modules/estatica/estatica-routing.modul
 import { EstaticaModule } from './modules/estatica/estatica.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
+
 
 @NgModule({
   declarations: [

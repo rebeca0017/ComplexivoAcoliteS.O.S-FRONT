@@ -24,6 +24,7 @@ import { MecanicoInformacionComponent } from './mecanico/mecanico-informacion/me
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { CanvasBoxComponent } from './models-3d/canvas-box/canvas-box.component';
 import { VehiculoComponent } from './vehiculo/vehiculo.component';
+import { PedidosComponent } from './pedidos/pedidos.component';
 
 
 
@@ -38,7 +39,8 @@ import { VehiculoComponent } from './vehiculo/vehiculo.component';
     ClienteInformacionComponent,
     MecanicoInformacionComponent,
     CanvasBoxComponent,
-    VehiculoComponent
+    VehiculoComponent,
+    PedidosComponent
   ],
   imports: [
     BrowserModule,
