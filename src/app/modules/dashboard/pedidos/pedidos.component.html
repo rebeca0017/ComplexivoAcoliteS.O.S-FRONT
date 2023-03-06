@@ -1,0 +1,97 @@
+<h1>Historial de pedidos</h1>
+
+<div class="burbujas">
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+    <div class="burbuja"></div>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div *ngIf="!pedidos || pedidos.length == 0">El usuario no tiene pedidos</div>
+        <table *ngIf="pedidos && pedidos.length " >
+          <thead>
+            <tr>
+              <th>vehiculo</th>
+              <th>ubicacion</th>
+              <th>detalles</th>
+              <th>estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pedido of pedidos">
+              <td>{{ pedido.id_vehiculo }}</td>
+              <td>{{ pedido.ubicacion }}</td>
+              <td>{{ pedido.detalle }}</td>
+              <td>{{ pedido.estado }}</td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <button (click)="showDetails = !showDetails" (click)="openPopup()">Solicitar un Mecanico</button>
+  
+  
+  
+        <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+          <div class="bg-blur-modal"></div>
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title"><b>Solicitar un Mecanico </b></h4>
+              </div>
+              <div class="modal-body">
+                <div *ngIf="showDetails">
+                  <form class="editar" [formGroup]="formGroup">
+                    <div class="form-row">
+                      <div class="form-group col-md-8">
+                    
+                        <label for="name">Vehiculo:</label>
+                        <input formControlName="id_vehiculo" style="color: black;" type="text" id="" name="id_vehiculo">
+                        <small *ngIf="formGroup.get('id_vehiculo').errors &&
+                        formGroup.get('id_vehiculo').hasError('required')" class="text-danger">Se debe llenar</small>
+
+                        <label for="name">ubicacion:</label>
+                            <input formControlName="ubicacion" style="color: black;" type="text" id="" name="ubicacion"
+                            class="form-control" [(ngModel)]="pedido.ubicacion">
+                            <small *ngIf="formGroup.get('ubicacion').errors &&
+                                formGroup.get('ubicacion').hasError('ubicacion')" class="text-danger">Se debe llenar</small>
+                          
+                        <label for="text">detalles: </label>
+                            <input formControlName="detalle" style="color: black;" type="text" id="" name="detalle"
+                                class="form-control" [(ngModel)]="pedido.detalle">
+                                <small *ngIf="formGroup.get('detalle').errors &&
+                            formGroup.get('detalle').hasError('required')" class="text-danger">Se debe llenar</small>
+                      </div>
+                    </div>
+                   
+                    <br>
+                    <br><br>
+                    <button [disabled]="!formGroup.valid" type="submit" class="btn btn-primary btn-guardar"
+                      (click)="createPedido()" (click)="closePopup()">Guardar</button>
+                  </form>
+                </div>
+  
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="closePopup()">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="img3d">
+        <!-- example carro -->
+        <app-canvas-box></app-canvas-box>
+      </div>
+    </div>
+  </div>

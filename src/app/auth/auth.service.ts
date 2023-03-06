@@ -9,14 +9,20 @@ import { AuthValidator } from './auth-validator';
 import { Router } from '@angular/router';
 import { AuthTokenDecoder } from './auth-token-decoder';
 
+
+
 const API_URL = environment.API_URL + '/auth';
 
 @Injectable({
   providedIn: 'root',
 })
+
 export class AuthService {
+  
   private httpOptions = {
+    
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    
   };
 
   constructor(

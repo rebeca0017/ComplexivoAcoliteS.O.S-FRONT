@@ -1,1 +1,27 @@
-<p>Bienvenido {{mecanico.name}}</p>
+
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <div *ngIf="!pedidos || pedidos.length == 0"> no tiene pedidos</div>
+        <table *ngIf="pedidos && pedidos.length " >
+            <thead>
+              <tr>
+                <th>Vehículo</th>
+                <th>Ubicación</th>
+                <th>Detalle</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let pedido of pedidos">
+                <td>{{ pedido.id_vehiculo }}</td>
+                <td>{{ pedido.ubicacion }}</td>
+                <td>{{ pedido.detalle }}</td>
+                <td>
+                  <button (click)="aceptarPedido(pedido.id, mecanico.id)">Aceptar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+

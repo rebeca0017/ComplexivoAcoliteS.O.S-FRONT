@@ -5,6 +5,7 @@ import { MainComponent } from './main/main.component';
 import { ClienteComponent } from '../../modules/dashboard/cliente/cliente.component';
 import { ClienteInformacionComponent } from '../../modules/dashboard/cliente/cliente-informacion/cliente-informacion.component';
 import { MecanicoComponent } from '../../modules/dashboard/mecanico/mecanico.component';
+import { PedidosComponent } from '../../modules/dashboard/pedidos/pedidos.component';
 import { AuthMecanicoGuard } from '../../auth/guards/auth-mecanico.guard';
 import { AuthClientGuard } from '../../auth/guards/auth-client.guard';
 import { AuthAdminGuard } from '../../auth/guards/auth-admin.guard';
@@ -32,6 +33,11 @@ const routes: Routes = [
         path: 'cliente-info',
         canActivate: [AuthClientGuard],
         component: ClienteInformacionComponent
+      },
+      {
+      path: 'pedidos',
+        canActivate: [AuthClientGuard],
+        component: PedidosComponent
       },
       {
         path: 'mecanico',
