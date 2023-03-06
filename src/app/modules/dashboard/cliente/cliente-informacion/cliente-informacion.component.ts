@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { ClienteService } from './cliente.service';
+import { ClienteService } from '../cliente.service';
 import { AuthService } from '../../../../auth/auth.service';
 import { User } from '../../../../models/user';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-cliente-informacion',
@@ -57,7 +58,6 @@ export class ClienteInformacionComponent {
       console.log(res)
     });
   }
-  showDetails = false;
 
   displayStyle = "none";
 
@@ -66,6 +66,15 @@ export class ClienteInformacionComponent {
   }
   closePopup() {
     this.displayStyle = "none";
+  }
+
+  displayStyleOK = "none";
+  openPopupOK() {
+    this.displayStyleOK = "block";
+  }
+
+  closePopupOK() {
+    this.displayStyleOK = "none";
   }
 
   updateUser() {

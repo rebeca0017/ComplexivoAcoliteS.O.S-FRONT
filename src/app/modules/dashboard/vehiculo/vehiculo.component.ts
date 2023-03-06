@@ -14,6 +14,7 @@ export class VehiculoComponent {
   vehiculo: Vehiculo = {} as Vehiculo;
   vehiculos: Vehiculo[];
   formGroup: FormGroup;
+  title: string;
 
   constructor(private authService: AuthService, private vehiculoService: VehiculoService, private formBuilder: FormBuilder) {
     this.initForm();
@@ -30,12 +31,26 @@ export class VehiculoComponent {
     this.formGroup.valueChanges.subscribe((val) => { console.log(val) });
   }
 
-  showDetails = false;
+
+  submit(){
+    if(this.vehiculo.id){
+      this.updateVehiculo();
+    }else{
+      this.createVehiculo();
+    }
+  }
+
+  clear(){
+    this.vehiculo = {} as Vehiculo;
+  }
 
   displayStyle = "none";
 
   openPopup() {
     this.displayStyle = "block";
+    if(!this.vehiculo.id){
+      this.title="Crear Vehículo"
+    }
   }
   closePopup() {
     this.displayStyle = "none";
@@ -44,6 +59,7 @@ export class VehiculoComponent {
 
   ngOnInit() {
     this.getVehiculos();
+
   }
 
   getVehiculos() {
@@ -52,10 +68,30 @@ export class VehiculoComponent {
       console.log(res)
     });
   }
+
+  getVehiculo(id:number) {
+    this.vehiculoService.getVehicle(id).subscribe((res: any) => {
+      this.vehiculo = res;
+      this.title="Editar Vehículo"
+      console.log(res)
+    });
+  }
+
   createVehiculo() {
     this.vehiculoService.createVehicle(this.vehiculo).subscribe((res: any) => {
       this.getVehiculos();
     });
+  }
+
+  updateVehiculo() {
+    console.log(this.vehiculo)
+    this.vehiculoService.updateVehicle(this.vehiculo).subscribe(
+      (response) => {
+        console.log('actualizado con exito')
+        this.getVehiculos();
+      },
+
+    );
   }
 }
 

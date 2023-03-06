@@ -15,6 +15,13 @@
   margin-left: -22px;
 }
 
+.navactive2{
+  padding-left: 50px !important;
+  padding-right: 40px !important;
+  margin-right: -50px;
+  margin-left: -22px;
+}
+
 .textos{
   color: white;
   font-size: 17px;

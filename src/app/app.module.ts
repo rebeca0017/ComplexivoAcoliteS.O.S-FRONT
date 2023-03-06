@@ -47,7 +47,7 @@ import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
     DashboardRoutingModule,
     IonicModule.forRoot(),
     ModalModule.forRoot(),
-    MdbModalModule
+    MdbModalModule,
   ],
   bootstrap: [AppComponent]
 })

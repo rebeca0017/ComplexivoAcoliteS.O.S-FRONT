@@ -13,45 +13,47 @@
 
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="form">
       <div *ngIf="!vehiculos || vehiculos.length == 0">El usuario no tiene vehículos</div>
-
-      <table *ngIf="vehiculos && vehiculos.length " >
+      <table class="table table-dark table-striped" *ngIf="vehiculos && vehiculos.length > 0">
         <thead>
           <tr>
             <th>Marca</th>
             <th>Modelo</th>
             <th>Color</th>
             <th>Placa</th>
+            <th>Editar</th>
           </tr>
         </thead>
+        <div class="espacio"></div>
         <tbody>
           <tr *ngFor="let vehiculo of vehiculos">
             <td>{{ vehiculo.marca }}</td>
             <td>{{ vehiculo.modelo }}</td>
-            <td><i class="fa-solid fa-car" style="color: {{ vehiculo.color }}; font-size: 25px;"></i></td>
+            <td><i class="i-vehiculo fa-solid fa-car" style="color: {{ vehiculo.color }}; font-size: 25px;"></i></td>
             <td>{{ vehiculo.placa }}</td>
+            <td><button  (click)="openPopup()" (click)="getVehiculo(vehiculo.id)"><i class="fa-solid fa-pen-to-square"></i></button></td>
           </tr>
         </tbody>
       </table>
+<br><br>
+      <button class="btn btn-primary"  (click)="openPopup()">Crear Vehiculo</button>
 
-      <button (click)="showDetails = !showDetails" (click)="openPopup()">Crear Vehiculo</button>
 
-
-
+<!-- crear vehículo -->
       <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
         <div class="bg-blur-modal"></div>
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title"><b>Editar Datos Personales</b></h4>
+              <h4 class="modal-title"><b>{{title}}</b></h4>
             </div>
             <div class="modal-body">
-              <div *ngIf="showDetails">
+              <div >
                 <form class="editar" [formGroup]="formGroup">
                   <div class="form-row">
                     <div class="form-group col-md-8">
-                      <i class="fa-solid fa-car" style="color: {{ vehiculo.color }}; font-size: 25px;"></i> <br>
+                      <i class="i-vehiculo fa-solid fa-car" style="color: {{ vehiculo.color }}; font-size: 25px;"></i> <br>
                       <label for="name">Placa:</label>
                       <input formControlName="placa" style="color: black;" type="text" id="name" name="name"
                         class="form-control" [(ngModel)]="vehiculo.placa">
@@ -90,13 +92,13 @@
                   <br>
                   <br><br>
                   <button [disabled]="!formGroup.valid" type="submit" class="btn btn-primary btn-guardar"
-                    (click)="createVehiculo()" (click)="closePopup()">Guardar</button>
+                    (click)="submit()" (click)="clear()" (click)="closePopup()">Guardar</button>
                 </form>
               </div>
 
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" (click)="closePopup()">
+              <button type="button" class="btn btn-danger" (click)="closePopup()" (click)="clear()">
                 Close
               </button>
             </div>
@@ -105,8 +107,10 @@
       </div>
     </div>
     <div class="img3d">
-      <!-- example carro -->
+
+      <!-- example rueda -->
       <app-canvas-box></app-canvas-box>
+
     </div>
   </div>
 </div>

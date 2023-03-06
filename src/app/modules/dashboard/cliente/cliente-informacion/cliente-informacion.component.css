@@ -1,3 +1,11 @@
+ng-particles {
+  position: absolute !important;
+  width: 100vw;
+  max-height: 100vh;
+  bottom: 0px;
+  z-index: -1;
+}
+
 .container{
   margin-left: 300px;
   text-align: center;
@@ -217,4 +225,25 @@ margin-top: 60px;
 /* validaciones */
 input:invalid{
   border: 2px solid red;
+}
+
+
+.exito{
+  align-items: center;
+  text-align: center;
+  color: white;
+  text-align: left;
+  margin: auto;
+  font-size: 15px;
+}
+
+.exito-img{
+display: block;
+margin: auto;
+}
+
+.btn-okcambios{
+text-align: center;
+margin: auto;
+font-size: 20px;
 }

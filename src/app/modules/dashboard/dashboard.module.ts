@@ -28,7 +28,6 @@ import { PedidosComponent } from './pedidos/pedidos.component';
 
 
 
-
 @NgModule({
   declarations: [
     MainComponent,
@@ -58,7 +57,7 @@ import { PedidosComponent } from './pedidos/pedidos.component';
     LayoutModule,
     MatSidenavModule,
     MatListModule,
-    NgApexchartsModule
+    NgApexchartsModule,
   ],
 })
 export class DashboardModule { }

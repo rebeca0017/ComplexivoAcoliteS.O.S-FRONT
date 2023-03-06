@@ -18,6 +18,7 @@ export class MecanicoService {
   private urlV = environment.API_URL + '/vehiculos';
   private url = environment.API_URL + '/pedidos';
 
+  private urlC = environment.API_URL + '/cliente';
 
   constructor(private http: HttpClient,  private authService: AuthService) { 
   }
@@ -27,11 +28,9 @@ export class MecanicoService {
     return this.http.get<Pedido[]>(`${this.url}`);
   }
   
-  updateUser(user: User): Observable<any> {
-    const headers = new HttpHeaders({
-      'Authorization': 'Bearer ' + this.authService.getToken()
-    });
-    return this.http.put<any>('http://127.0.0.1:8000/api/mecanico/update/' + user.id, user);
+  updateUser(user: User): Observable<User> {
+    
+    return this.http.put<User>(`${this.urlC}/update/${user.id}`, user, this.httpOptions);
   }
 
   aceptarPedido(idPedido: number, idMecanico: number): Observable<any> {
