@@ -16,6 +16,7 @@
             <tbody>
               <tr *ngFor="let pedido of pedidos">
                 <td *ngFor="let vehiculo of vehiculos">{{ vehiculo.placa }}</td>
+                <td>{{ pedido.id_vehiculo }}</td>
                 <td>{{ pedido.ubicacion }}</td>
                 <td>{{ pedido.detalle }}</td>
                 <td>
