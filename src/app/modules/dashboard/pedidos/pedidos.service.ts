@@ -23,6 +23,10 @@ export class PedidoService {
     return this.http.get<Vehiculo[]>(`${this.urlV}`);
   }
 
+  getVehicle(id:number): Observable<Vehiculo[] > {
+    return this.http.get<Vehiculo[]>(`${this.url}/${id}`);
+  }
+
   getOrders(): Observable<Pedido[] > {
     return this.http.get<Pedido[]>(`${this.url}`);
   }

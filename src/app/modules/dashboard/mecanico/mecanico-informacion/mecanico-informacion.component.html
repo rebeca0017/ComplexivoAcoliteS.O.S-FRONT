@@ -19,7 +19,7 @@
   <br><br><br><br>
   <form>
     <div class="form-group row">
-      <label for="staticEmail" class="col-5 col-form-label">usuario: </label>
+      <label for="staticEmail" class="col-5 col-form-label">Usuario: </label>
       <div class="col-sm-5">
         <input type="text" readonly class="form-control-plaintext" id="staticEmail" value={{mecanico.name}}>
       </div>
@@ -37,13 +37,13 @@
       </div>
     </div>
     <div class="form-group row">
-      <label for="staticidentificacion" class="col-5 col-form-label">Identificacion: </label>
+      <label for="staticidentificacion" class="col-5 col-form-label">Cédula: </label>
       <div class="col-sm-5">
         <input type="text" readonly class="form-control-plaintext" id="staticidentificacion" value={{mecanico.cedula}}>
       </div>
     </div>
     <div class="form-group row">
-      <label for="staticidentificacion" class="col-5 col-form-label">contacto: </label>
+      <label for="staticidentificacion" class="col-5 col-form-label">Contacto: </label>
       <div class="col-sm-5">
         <input type="text" readonly class="form-control-plaintext" id="staticidentificacion"
           value={{mecanico.contacto}}>
@@ -52,7 +52,7 @@
   </form>
 
   <br> <br> <br>
-  <button type="button" class="btn btn-primary" (click)="openPopup()">editar</button>
+  <button type="button" class="btn btn-primary" (click)="openPopup()">Editar</button>
 </div>
 
 
@@ -74,11 +74,11 @@
                 <input formControlName="usuario" style="color: black;" type="text" id="name" name="name"
                   class="form-control" [(ngModel)]="mecanico.name">
                 <small *ngIf="formGroup.get('usuario').errors &&
-                  formGroup.get('usuario').hasError('maxlength')" class="text-danger">Máximo 10 caracteres</small>
+                  formGroup.get('usuario').hasError('maxlength')" class="text-danger">Máximo 10 letras</small>
                 <small *ngIf="formGroup.get('usuario').errors &&
                   formGroup.get('usuario').hasError('required')" class="text-danger">Se debe llenar</small>
                 <small *ngIf="formGroup.get('usuario').errors &&
-                  formGroup.get('usuario').hasError('minlength')" class="text-danger">Minimo 3 caracteres</small>
+                  formGroup.get('usuario').hasError('minlength')" class="text-danger">Mínimo 3 letras</small>
               </div>
               <br>
               <div class="form-group col-md-8">
@@ -109,9 +109,9 @@
             </div>
             <br>
             <div class="col-md-8">
-              <label for="inputIdentificacion">Cedula: </label>
+              <label for="inputIdentificacion">Cédula: </label>
               <input formControlName="cedula" style="color: black;" id="inputIdentificacion" class="form-control"
-                name="identificacion" [(ngModel)]="mecanico.cedula" (change)="validadorDeCedula(mecanico.ceula)"
+                name="identificacion" [(ngModel)]="mecanico.cedula" (change)="validador(mecanico.cedula)"
                 (keypress)="validateFormat($event)">
               <small *ngIf="!validador" class="text-danger">Cédula Inválida</small>
               <small *ngIf="formGroup.get('cedula').errors &&
@@ -128,7 +128,7 @@
               <small *ngIf="formGroup.get('contacto').errors &&
                   formGroup.get('contacto').hasError('maxlength')" class="text-danger">Maximo 10 dígitos</small>
               <small *ngIf="formGroup.get('contacto').errors &&
-                  formGroup.get('contacto').hasError('minlength')" class="text-danger">minimo 10 dígitos</small>
+                  formGroup.get('contacto').hasError('minlength')" class="text-danger">Mínimo 10 dígitos</small>
             </div>
             <br>
 

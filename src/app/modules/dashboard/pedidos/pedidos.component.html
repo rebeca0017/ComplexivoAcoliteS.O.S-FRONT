@@ -1,94 +1,98 @@
 <div class="burbujas">
-    <div class="burbuja"></div>
-    <div class="burbuja"></div>
-    <div class="burbuja"></div>
-    <div class="burbuja"></div>
-    <div class="burbuja"></div>
-    <div class="burbuja"></div>
-    <div class="burbuja"></div>
-    <div class="burbuja"></div>
-    <div class="burbuja"></div>
-    <div class="burbuja"></div>
-  </div>
-  
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div *ngIf="!pedidos || pedidos.length == 0">El usuario no tiene pedidos</div>
-        <table *ngIf="pedidos && pedidos.length " >
-          <thead>
-            <tr>
-              <th>vehiculo</th>
-              <th>ubicacion</th>
-              <th>detalles</th>
-              <th>estado</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let pedido of pedidos">
-              <td *ngFor="let vehiculo of vehiculos">{{ vehiculo.placa }}</td>
-              <td>{{ pedido.ubicacion }}</td>
-              <td>{{ pedido.detalle }}</td>
-              <td>{{ pedido.estado }}</td>
-            </tr>
-          </tbody>
-        </table>
-  
-        <button (click)="openPopup()">Solicitar un Mecanico</button>
-  
-  
-  
-        <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
-          <div class="bg-blur-modal"></div>
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h4 class="modal-title"><b>Solicitar un Mecanico </b></h4>
-              </div>
-              <div class="modal-body">
-                <div>
-                  <form class="editar" [formGroup]="formGroup">
-                    <div class="form-row">
-                      <div class="form-group col-md-8">
-                    
-                        <label for="name">Vehículo:</label>
-                              <select formControlName="id_vehiculo" name="id_vehiculo" style="color: black;">
-                                <option *ngFor="let vehiculo of vehiculos" [value]="vehiculo.id">{{ vehiculo.placa }}</option>
-                              </select>
-                              <small *ngIf="formGroup.get('id_vehiculo').errors && 
-                              formGroup.get('id_vehiculo').hasError('required')" 
-                              class="text-danger">Se debe llenar</small>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+</div>
 
-                        <label for="name">ubicacion:</label>
-                            <input formControlName="ubicacion" style="color: black;" type="text" id="" name="ubicacion"
-                            class="form-control" [(ngModel)]="pedido.ubicacion">
-                            <small *ngIf="formGroup.get('ubicacion').errors &&
-                                formGroup.get('ubicacion').hasError('ubicacion')" class="text-danger">Se debe llenar</small>
-                          
-                        <label for="text">detalles: </label>
-                            <input formControlName="detalle" style="color: black;" type="text" id="" name="detalle"
-                                class="form-control" [(ngModel)]="pedido.detalle">
-                                <small *ngIf="formGroup.get('detalle').errors &&
+<div class="container">
+  <div class="row">
+    <div class="col formvisible">
+      <br><br>
+      <div *ngIf="!pedidos || pedidos.length == 0">El usuario no tiene pedidos</div>
+      <table *ngIf="pedidos && pedidos.length ">
+        <thead>
+          <tr>
+            <th>Vehículo</th>
+            <th>Ubicación</th>
+            <th>Detalles</th>
+            <th>Estado</th>
+          </tr>
+          <br><br>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pedido of pedidos">
+            <td>{{ vehiculo.placa }}</td>
+            <td>{{ pedido.ubicacion }}</td>
+            <td>{{ pedido.detalle }}</td>
+            <td>{{ pedido.estado }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <br><br>
+      <button class="btn-editar" (click)="openPopup()">Solicitar un Mecánico</button>
+
+
+
+      <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+        <div class="bg-blur-modal"></div>
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title"><b>Solicitar un Mecánico </b></h4>
+            </div>
+            <div class="modal-body">
+              <div>
+                <form class="editar" [formGroup]="formGroup">
+                  <div class="form-row">
+                    <div class="form-group col-md-8">
+
+                      <label for="name">Vehículo:</label>
+                      <select formControlName="id_vehiculo" name="id_vehiculo" style="color: black;">
+                        <option *ngFor="let vehiculo of vehiculos" [value]="vehiculo.id">{{ vehiculo.placa }}</option>
+                      </select>
+                      <br>
+                      <small *ngIf="formGroup.get('id_vehiculo').errors && 
+                              formGroup.get('id_vehiculo').hasError('required')" class="text-danger">Se debe
+                        llenar</small>
+                      <br><br>
+                      <label for="name">Ubicación:</label>
+                      <input formControlName="ubicacion" style="color: black;" type="text" id="" name="ubicacion"
+                        class="form-control" [(ngModel)]="pedido.ubicacion">
+                      <small *ngIf="formGroup.get('ubicacion').errors &&
+                                formGroup.get('ubicacion').hasError('ubicacion')" class="text-danger">Se debe
+                        llenar</small>
+                      <br><br>
+                      <label for="text">Detalles: </label>
+                      <input formControlName="detalle" style="color: black;" type="text" id="" name="detalle"
+                        class="form-control" [(ngModel)]="pedido.detalle">
+                      <small *ngIf="formGroup.get('detalle').errors &&
                             formGroup.get('detalle').hasError('required')" class="text-danger">Se debe llenar</small>
-                      </div>
                     </div>
-                   
-                    <br>
-                    <br><br>
-                    <button [disabled]="!formGroup.valid" type="submit" class="btn btn-primary btn-guardar"
-                      (click)="createPedido()" (click)="closePopup()" (click)="clear()">Guardar</button>
-                  </form>
-                </div>
-  
+                  </div>
+
+                  <br>
+                  <br><br>
+                  <button [disabled]="!formGroup.valid" type="submit" class="btn btn-primary btn-guardar"
+                    (click)="createPedido()" (click)="closePopup()" (click)="clear()">Guardar</button>
+                </form>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" (click)="closePopup()" (click)="clear()">
-                  Close
-                </button>
-              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" (click)="closePopup()" (click)="clear()">
+                Close
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
