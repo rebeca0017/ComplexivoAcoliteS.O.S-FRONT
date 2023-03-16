@@ -37,7 +37,7 @@
         </tbody>
       </table>
 <br><br>
-      <button class="btn btn-primary"  (click)="openPopup()">Crear Vehiculo</button>
+      <button class="btn btn-primary"  (click)="openPopup()">Crear Vehículo</button>
 
 
 <!-- crear vehículo -->
@@ -92,7 +92,7 @@
                   <br>
                   <br><br>
                   <button [disabled]="!formGroup.valid" type="submit" class="btn btn-primary btn-guardar"
-                    (click)="submit()" (click)="clear()" (click)="closePopup()">Guardar</button>
+                    (click)="submit()" (click)="clear()" (click)="closePopup()" (click)="openPopupOK()">Guardar</button>
                 </form>
               </div>
 
@@ -111,6 +111,28 @@
       <!-- example rueda -->
       <app-canvas-box></app-canvas-box>
 
+    </div>
+  </div>
+</div>
+
+<!-- modal de guardado exitoso -->
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyleOK}">
+  <div class="bg-blur-modal"></div>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><b>¡Logrado!</b></h4>
+      </div>
+      <div class="modal-body exito">
+        <img class="exito-img" src="https://img.icons8.com/color/100/null/ok--v1.png"/>
+        <h1>¡Su información se agregó exitosamente!</h1>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success btn-okcambios" (click)="closePopupOK()">
+          Ok
+        </button>
+      </div>
     </div>
   </div>
 </div>

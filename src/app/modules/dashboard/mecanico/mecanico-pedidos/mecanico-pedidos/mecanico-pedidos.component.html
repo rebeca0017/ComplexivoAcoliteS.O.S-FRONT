@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <div *ngIf="!pedidos || pedidos.length == 0"> No tiene pedidos</div>
+        <table class="table table-success table-striped" *ngIf="pedidos && pedidos.length " >
+            <thead>
+              <tr>
+                
+                <th>Vehículo</th>
+                <th>Ubicación</th>
+                <th>Detalle</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let pedido of pedidos">
+                <td *ngFor="let vehiculo of vehiculos">{{ vehiculo.placa }}</td>
+                <td>{{ pedido.id_vehiculo }}</td>
+                <td>{{ pedido.ubicacion }}</td>
+                <td>{{ pedido.detalle }}</td>
+                <td>
+                  <button class="btn btn-primary btn-editar" (click)="aceptarPedido(pedido.id, mecanico.id)">Aceptar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+</div>

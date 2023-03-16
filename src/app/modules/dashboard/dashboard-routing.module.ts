@@ -12,6 +12,7 @@ import { AuthAdminGuard } from '../../auth/guards/auth-admin.guard';
 import { MecanicoInformacionComponent } from '../../modules/dashboard/mecanico/mecanico-informacion/mecanico-informacion.component';
 import { VehiculoComponent } from '../../modules/dashboard/vehiculo/vehiculo.component';
 import { CanvasBoxComponent } from './models-3d/canvas-box/canvas-box.component';
+import { MecanicoPedidosComponent } from './mecanico/mecanico-pedidos/mecanico-pedidos/mecanico-pedidos.component';
 
 
 const routes: Routes = [
@@ -39,6 +40,11 @@ const routes: Routes = [
       path: 'pedidos',
         canActivate: [AuthClientGuard],
         component: PedidosComponent
+      },
+      {
+        path: 'mecanico-pedidos',
+        canActivate: [AuthMecanicoGuard],
+        component: MecanicoPedidosComponent
       },
       {
         path: 'mecanico',

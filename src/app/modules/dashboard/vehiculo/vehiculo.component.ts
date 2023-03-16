@@ -22,7 +22,7 @@ export class VehiculoComponent {
 
   initForm() {
     this.formGroup = this.formBuilder.group({
-      placa: ['', [Validators.required, Validators.maxLength(6), Validators.minLength(5)]],
+      placa: ['', [Validators.required, Validators.maxLength(7), Validators.minLength(5)]],
       marca: ['', [Validators.required]],
       modelo: ['', [Validators.required]],
       color: ['', [Validators.required]],
@@ -56,6 +56,14 @@ export class VehiculoComponent {
     this.displayStyle = "none";
   }
 
+  displayStyleOK = "none";
+  openPopupOK() {
+    this.displayStyleOK = "block";
+  }
+
+  closePopupOK() {
+    this.displayStyleOK = "none";
+  }
 
   ngOnInit() {
     this.getVehiculos();
